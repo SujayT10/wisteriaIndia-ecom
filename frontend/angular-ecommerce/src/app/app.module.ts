@@ -10,6 +10,7 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductService } from './service/product.service';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ProductService } from './service/product.service';
     SearchComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
