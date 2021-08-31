@@ -21,13 +21,9 @@ export class ProductCategoryMenuComponent implements OnInit {
   listProductCategories() {
    this.productService.getProductCategories().subscribe(
      data => {
-      //  console.log('Product Sujay= ' + JSON.stringify(data));
-       this.productCategory = data;
+       this.productCategory = data;  //  console.log('Product Data= ' + JSON.stringify(data));
      });
   }
 
-  iamDon(){
-    console.log("i am don..!!");
-  }
 
 }

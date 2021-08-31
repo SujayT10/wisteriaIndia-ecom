@@ -24,14 +24,14 @@ export class ProductService {
 
   getProductList(theCategoryId: number): Observable<Product[]> {
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;// Build URL for catergory id
-    // console.log("serch URl: " + searchUrl);
-    return this.getProducts(searchUrl);
+    return this.getProducts(searchUrl);    // console.log("serch URl: " + searchUrl);
+
   }
 
   searchProduct(theKeyword: string): Observable<Product[]> {
     const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;// Build URL for Keyword
-    // console.log("serch URl: " + searchUrl);
-    return this.getProducts(searchUrl);
+    return this.getProducts(searchUrl);      // console.log("serch URl: " + searchUrl);
+
   }
 
   private getProducts(searchUrl: string): Observable<Product[]> {
@@ -49,9 +49,9 @@ export class ProductService {
   getProductListPaginate(thePage:number, thePageSize:number,
                          theCategoryId: number): Observable<GetResponseProducts> {
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`
-                       + `&page=${thePage}&size=${thePageSize}`;// Build URL for catergory id, page and page size
-    console.log("serch URl: " + searchUrl);
-    return this.httpClient.get<GetResponseProducts>(searchUrl);
+                       + `&page=${thePage}&size=${thePageSize}`;  // Build URL for catergory id, page and page size
+    return this.httpClient.get<GetResponseProducts>(searchUrl);      //console.log("serch URl: " + searchUrl);
+
   }
 
 
