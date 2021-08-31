@@ -12,6 +12,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductService } from './service/product.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CartStatusComponent } from './components/cart-status/cart-status.compon
     ProductDetailsComponent,
     ProductCategoryMenuComponent,
     PageNotFoundComponent,
-    CartStatusComponent
+    CartStatusComponent,
+    CartDetailsComponent
   ],
   imports: [
     BrowserModule,
