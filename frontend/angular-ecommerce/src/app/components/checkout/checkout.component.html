@@ -1,0 +1,271 @@
+<div class="main-content page-m">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+
+      <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+
+        <!-- customer form group -->
+        <div formGroupName="customer" class="form-area">
+          <h3>Customer</h3>
+
+          <!-- first Name -->
+          <div class="row">
+            <div class="col-md-2"><label>First Name</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="firstName" type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- last Name -->
+          <div class="row">
+            <div class="col-md-2"><label>Last Name</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="lastName" type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- mail -->
+          <div class="row">
+            <div class="col-md-2"><label>Email</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="email" type="text">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--End customer form group -->
+
+        <!-- Shipping address form group -->
+        <div formGroupName="shippingAddress" class="form-area">
+          <h3>Shipping Address</h3>
+
+          <!-- street Name -->
+          <div class="row">
+            <div class="col-md-2"><label>Street</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="street" type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- city Name -->
+          <div class="row">
+            <div class="col-md-2"><label>City</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="city" type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- state -->
+          <div class="row">
+            <div class="col-md-2"><label>State</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="state">
+                  <option>-------</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- country -->
+          <div class="row">
+            <div class="col-md-2"><label>Country</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="country">
+                  <option>-------</option>
+                  <option>--eeee--</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- zipCode -->
+          <div class="row">
+            <div class="col-md-2"><label>Zip Code</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="zipCode" type="text">
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!-- End Shipping address form group -->
+
+        <!-- check box -->
+        <div class="input-space">
+          <label class="au-checkbox">
+            <input type="checkbox" (change)="copyShippingAddressToBillingAddress($event)">
+            <span class="au-checkmark"></span>Billing Address same as Shipping Address
+          </label>
+        </div>
+        <!-- end check box -->
+        <!-- Billing address form group -->
+        <div formGroupName="billingAddress" class="form-area">
+          <h3>Billing Address</h3>
+
+          <!-- street Name -->
+          <div class="row">
+            <div class="col-md-2"><label>Street</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="street" type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- city Name -->
+          <div class="row">
+            <div class="col-md-2"><label>City</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="city" type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- state -->
+          <div class="row">
+            <div class="col-md-2"><label>State</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="state">
+                  <option>-------</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- country -->
+          <div class="row">
+            <div class="col-md-2"><label>Country</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="country">
+                  <option>-------</option>
+                  <option>--eeee--</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- zipCode -->
+          <div class="row">
+            <div class="col-md-2"><label>Zip Code</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="zipCode" type="text">
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <!-- End Billing address form group -->
+
+        <!-- Credit card form group -->
+        <div formGroupName="creditCartInfo" class="form-area">
+          <h3>Credit Card</h3>
+
+          <!-- cardType -->
+          <div class="row">
+            <div class="col-md-2"><label>Card Type</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="cardType">
+                  <option>Visa</option>
+                  <option>Master Card</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card Name -->
+          <div class="row">
+            <div class="col-md-2"><label>Name on Card</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="nameOnCard" type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- Card number -->
+          <div class="row">
+            <div class="col-md-2"><label>Card Number</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="cardNumber" type="text">
+              </div>
+            </div>
+          </div>
+
+          <!-- security number -->
+          <div class="row">
+            <div class="col-md-2"><label>Security Code</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <input formControlName="securityCode" type="text">
+              </div>
+            </div>
+          </div>
+
+
+          <!-- expressionMonth -->
+          <div class="row">
+            <div class="col-md-2"><label>Expression Month</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="expressionMonth">
+                  <option>-------</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- expressionYear -->
+          <div class="row">
+            <div class="col-md-2"><label>Expression Year</label></div>
+            <div class="col-md-9">
+              <div class="input-space">
+                <select formControlName="expressionYear">
+                  <option>-------</option>
+                  <option>--eeee--</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- End Credit card  form group -->
+
+        <!--End customer form group -->
+
+        <!-- review product -->
+        <div class="form-area">
+          <h3>Review Your Order</h3>
+          <p>Total Quantity: {{totalQuantity}}</p>
+          <p> Shipping Free</p>
+          <p>Total Price: {{totalPrice | currency: 'INR'}}</p>
+        </div>
+         <!-- End review product -->
+        <!-- submit button -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-info">Purchase</button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { NgModule } from '@angular/core';
@@ -7,6 +8,7 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
 
 const routes: Routes = [
 
+  {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'products/:id', component: ProductDetailsComponent},
   {path: 'search/:keyword', component: ProductListComponent},

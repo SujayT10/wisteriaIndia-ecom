@@ -515,7 +515,7 @@ input.au-input.au-input-xl{
   background:#fff
 }
 .main-content.page-m{
-  padding:10% 15%!important
+  padding:10% 30% 10% 5%
 }
 
 /*
@@ -721,11 +721,11 @@ table.table.table-bordered th{
   color:#0da8e4
 }
 .detail-section{
-  margin-top:100px
+  margin-top:10%
 }
 
 .detail-img{
-  width:50%;
+  width:5 0%;
 }
 /**/
 
