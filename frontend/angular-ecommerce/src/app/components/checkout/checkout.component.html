@@ -228,7 +228,9 @@
             <div class="col-md-9">
               <div class="input-space">
                 <select formControlName="expressionMonth">
-                  <option>-------</option>
+                  <option *ngFor="let month of creditCardMonth">
+                    {{ month }}
+                  </option>
                 </select>
               </div>
             </div>
@@ -239,9 +241,10 @@
             <div class="col-md-2"><label>Expression Year</label></div>
             <div class="col-md-9">
               <div class="input-space">
-                <select formControlName="expressionYear">
-                  <option>-------</option>
-                  <option>--eeee--</option>
+                <select formControlName="expressionYear" (change)="handelMonthsAndYears()" >
+                  <option *ngFor="let year of creditCardYear">
+                    {{ year }}
+                  </option>
                 </select>
               </div>
             </div>
