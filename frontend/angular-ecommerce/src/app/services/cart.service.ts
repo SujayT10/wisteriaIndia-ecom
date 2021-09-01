@@ -48,12 +48,10 @@ export class CartService {
       totalPriceValue +=currentCartItem.quantity * currentCartItem.unitPrice;
       totalQuantityValue += currentCartItem.quantity;
     }
-      // publis new data and all subscriber will recive new data
-      this.totalPrice.next(totalPriceValue);
+      this.totalPrice.next(totalPriceValue);      // publis new data and all subscriber will recive new data
       this.totalQuantity.next(totalQuantityValue);
 
-      //for debugging purposes
-      this.logCartData(totalPriceValue, totalQuantityValue);
+      this.logCartData(totalPriceValue, totalQuantityValue);      //for debugging purposes
   }
 
   logCartData(totalPriceValue:number, totalQuantityValue:number){
@@ -68,4 +66,28 @@ export class CartService {
 
     console.log("-----");
   }
+
+  decrementQuantity(theCartItem : CartItem){
+    theCartItem.quantity--;
+
+    if(theCartItem.quantity === 0){
+      this.remove(theCartItem);
+    }
+    else{
+      this.computeCartTotals();
+    }
+  }
+
+  remove(theCartItem : CartItem){
+    // get index item in the array
+    const itemIndex = this.cartItems.findIndex(tempCartItem =>tempCartItem.id === theCartItem.id);
+
+    // if found, then remove item form array at given index
+    if(itemIndex > -1){
+      this.cartItems.splice(itemIndex, 1);
+      this.computeCartTotals();
+    }
+
+  }
+
 }
