@@ -13,6 +13,7 @@ import { ProductService } from './service/product.service';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CartDetailsComponent } from './components/cart-details/cart-details.com
     ProductCategoryMenuComponent,
     PageNotFoundComponent,
     CartStatusComponent,
-    CartDetailsComponent
+    CartDetailsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
