@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Country } from 'src/app/common/country';
 import { State } from 'src/app/common/state';
+import { CartService } from 'src/app/services/cart.service';
 import { FormService } from 'src/app/services/form.service';
 import { FormValidator } from 'src/app/validators/form-validator';
 
@@ -25,7 +26,8 @@ export class CheckoutComponent implements OnInit {
 
   checkoutFormGroup: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private formService: FormService) { }
+  constructor(private formBuilder: FormBuilder, private formService: FormService,
+              private cartService: CartService) { }
 
   ngOnInit(): void {
     this.checkoutFormGroup = this.formBuilder.group({
@@ -60,7 +62,7 @@ export class CheckoutComponent implements OnInit {
     });
 
     // populate credit card months
-    const startMonth = new Date().getMonth() + 1; console.log("Start Month: " + startMonth);
+    const startMonth = new Date().getMonth() + 1; // console.log("Start Month: " + startMonth);
     this.formService.getCreditCardMonth(startMonth).subscribe(
       data => {
         this.creditCardMonth = data;  // console.log("Resived credit card month:" + JSON.stringify(data));
@@ -75,9 +77,22 @@ export class CheckoutComponent implements OnInit {
     // populate the countries
     this.formService.getCountries().subscribe(
       data => {
-        this.countries = data; console.log("resived countries: " + JSON.stringify(data));
+        this.countries = data; // console.log("resived countries: " + JSON.stringify(data));
       });
 
+      this.reviewCartDetails();
+
+  }
+
+  reviewCartDetails() {
+    // subscribe to cartService.totalQuantity
+    this.cartService.totalQuantity.subscribe(
+      totalQuantity => this.totalQuantity = totalQuantity
+    );
+     // subscribe to cartService.totalPrice
+     this.cartService.totalPrice.subscribe(
+       totalPrice => this.totalPrice = totalPrice
+     );
   }
 
   get firstName() { return this.checkoutFormGroup.get('customer.firstName') }
@@ -102,17 +117,17 @@ export class CheckoutComponent implements OnInit {
   get creditCardSecurityCode() { return this.checkoutFormGroup.get('creditCartInfo.securityCode') }
 
   onSubmit() {
-    console.log('I am From checkout component');
+    // console.log('I am From checkout component');
     if (this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
     }
 
-    console.log(this.checkoutFormGroup.get('customer').value);
-    console.log(this.checkoutFormGroup.get('shippingAddress').value);
-    console.log(this.checkoutFormGroup.get('billingAddress').value);
-    console.log(this.checkoutFormGroup.get('creditCartInfo').value);
-    console.log("Shipping Address " + this.checkoutFormGroup.get('shippingAddress').value.country.code);
-    console.log("Billing Address " + this.checkoutFormGroup.get('billingAddress').value.country.name);
+    // console.log(this.checkoutFormGroup.get('customer').value);
+    // console.log(this.checkoutFormGroup.get('shippingAddress').value);
+    // console.log(this.checkoutFormGroup.get('billingAddress').value);
+    // console.log(this.checkoutFormGroup.get('creditCartInfo').value);
+    // console.log("Shipping Address " + this.checkoutFormGroup.get('shippingAddress').value.country.code);
+    // console.log("Billing Address " + this.checkoutFormGroup.get('billingAddress').value.country.name);
 
   }
 
@@ -146,7 +161,7 @@ export class CheckoutComponent implements OnInit {
     }
     this.formService.getCreditCardMonth(startMonth).subscribe(
       data => {
-        console.log("FromHandel method revised month and year: " + JSON.stringify(data));
+        // console.log("FromHandel method revised month and year: " + JSON.stringify(data));
         this.creditCardMonth = data;
       });
   }
@@ -157,8 +172,8 @@ export class CheckoutComponent implements OnInit {
     const countryCode = formGroup.value.country.code;
     const countryName = formGroup.value.country.name;
 
-    console.log(`${formGroupName} country code: ${countryCode}`);
-    console.log(`${formGroupName} country Name: ${countryName}`);
+    // console.log(`${formGroupName} country code: ${countryCode}`);
+    // console.log(`${formGroupName} country Name: ${countryName}`);
 
     this.formService.getStates(countryCode).subscribe(
       data => {
@@ -172,6 +187,7 @@ export class CheckoutComponent implements OnInit {
         // select 1st state as default
         formGroup.get('state').setValue(data[0]);
       });
+
   }
 
 }
