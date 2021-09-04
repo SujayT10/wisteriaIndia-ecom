@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Country } from 'src/app/common/country';
+import { Order } from 'src/app/common/order';
+import { OrderItem } from 'src/app/common/order-item';
+import { Purchase } from 'src/app/common/purchase';
 import { State } from 'src/app/common/state';
 import { CartService } from 'src/app/services/cart.service';
+import { CheckoutService } from 'src/app/services/checkout.service';
 import { FormService } from 'src/app/services/form.service';
 import { FormValidator } from 'src/app/validators/form-validator';
 
@@ -27,7 +32,7 @@ export class CheckoutComponent implements OnInit {
   checkoutFormGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private formService: FormService,
-              private cartService: CartService) { }
+              private cartService: CartService, private checkoutService: CheckoutService, private router: Router) { }
 
   ngOnInit(): void {
     this.checkoutFormGroup = this.formBuilder.group({
@@ -120,15 +125,71 @@ export class CheckoutComponent implements OnInit {
     // console.log('I am From checkout component');
     if (this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
+      return;
     }
 
-    // console.log(this.checkoutFormGroup.get('customer').value);
-    // console.log(this.checkoutFormGroup.get('shippingAddress').value);
-    // console.log(this.checkoutFormGroup.get('billingAddress').value);
-    // console.log(this.checkoutFormGroup.get('creditCartInfo').value);
-    // console.log("Shipping Address " + this.checkoutFormGroup.get('shippingAddress').value.country.code);
-    // console.log("Billing Address " + this.checkoutFormGroup.get('billingAddress').value.country.name);
+    // set up order
+    let order = new Order();
+    order.totalPrice = this.totalPrice;
+    order.totalQuantity = this.totalQuantity;
 
+    // get cart cartItems
+    const cartItems = this.cartService.cartItems;
+
+    // crate orderItems from cartItems
+    let orderItems: OrderItem[] = cartItems.map(item => new OrderItem(item)); //--shortWay
+
+    // let orderItemsLong: OrderItem[] = [];
+    // for (let i = 0; i < cartItems.length; i++) {
+    //   orderItemsLong[i] = new OrderItem(cartItems[i]);
+    // }
+
+    // set up  purchase
+    let purchase = new Purchase();
+
+    // pupulate purchase -- customer
+    purchase.customer = this.checkoutFormGroup.controls["customer"].value;
+
+    // pupulate purchase -- shippingAddress
+    purchase.shippingAddress = this.checkoutFormGroup.controls["shippingAddress"].value;
+    const shippingState: State =JSON.parse(JSON.stringify(purchase.shippingAddress.state));
+    const shippingCountry: Country =JSON.parse(JSON.stringify(purchase.shippingAddress.country));
+
+    purchase.shippingAddress.state = shippingState.name;
+    purchase.shippingAddress.country = shippingCountry.name;
+
+    // pupulate purchase -- billingAddress
+    purchase.billingAddress = this.checkoutFormGroup.controls["billingAddress"].value;
+    const billingState: State =JSON.parse(JSON.stringify(purchase.billingAddress.state));
+    const billingCountry: Country =JSON.parse(JSON.stringify(purchase.billingAddress.country));
+
+    purchase.billingAddress.state = billingState.name;
+    purchase.billingAddress.country = billingCountry.name;
+
+    // pupulate purchase -- order and orderItems
+    purchase.order = order;
+    purchase.orderItems = orderItems;
+
+    // call REST API via checkoutService
+    this.checkoutService.placeOrder(purchase).subscribe({
+        next:response =>{
+          alert(`Your order hase been recived.\nOrder Traking number: ${response.orderTrakingNumber}`);
+          this.resetCart();
+        },
+        error: err =>{
+          alert(`There was an error: ${err.message}`);
+        }
+      });
+
+  }
+  resetCart() {
+    this.cartService.cartItems = [];
+    this.cartService.totalPrice.next(0);
+    this.cartService.totalQuantity.next(0);
+
+    this.checkoutFormGroup.reset();
+
+    this.router.navigateByUrl("/products");
   }
 
   copyShippingAddressToBillingAddress(event: any) {

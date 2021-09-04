@@ -37,7 +37,7 @@
                 <input formControlName="lastName" type="text">
 
                 <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger mt-1">
-                  <div *ngIf="lastName.errors.required || firstName.errors.noWhiteSpaces">
+                  <div *ngIf="lastName.errors.required || lastName.errors.noWhiteSpaces">
                     Last Name is required
                   </div>
                   <div *ngIf="lastName.errors.minlength">
@@ -393,7 +393,7 @@
                   class="alert alert-danger mt-1">
                   <div *ngIf="creditCardSecurityCode.errors.required || creditCardSecurityCode.errors.noWhiteSpaces">
                     Security Code is required
-                  </div>      
+                  </div>
                   <div *ngIf="creditCardSecurityCode.errors.pattern">
                     Security Code  must be 3 digit long
                   </div>
