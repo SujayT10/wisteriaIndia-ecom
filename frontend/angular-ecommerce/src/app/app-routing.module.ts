@@ -1,3 +1,4 @@
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { LoginComponent } from './components/login/login.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
@@ -11,6 +12,7 @@ import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
 
 const routes: Routes = [
 
+  { path: 'order-history', component: OrderHistoryComponent, canActivate: [OktaAuthGuard] },
   { path: 'members', component: MembersPageComponent, canActivate: [OktaAuthGuard] },
 
   { path: 'login/callback', component: OktaCallbackComponent },

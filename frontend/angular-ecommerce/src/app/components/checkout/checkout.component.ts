@@ -31,15 +31,21 @@ export class CheckoutComponent implements OnInit {
 
   checkoutFormGroup: FormGroup;
 
+  storage: Storage = sessionStorage;
+
   constructor(private formBuilder: FormBuilder, private formService: FormService,
               private cartService: CartService, private checkoutService: CheckoutService, private router: Router) { }
 
   ngOnInit(): void {
+
+    // read  the user's email form session storage
+    const theEmail = JSON.parse(this.storage.getItem("userEmail"));
+
     this.checkoutFormGroup = this.formBuilder.group({
       customer: this.formBuilder.group({
         firstName: new FormControl('', [Validators.required, Validators.minLength(2), FormValidator.noWhiteSpaces]),
         lastName: new FormControl('', [Validators.required, Validators.minLength(2), FormValidator.noWhiteSpaces]),
-        email: new FormControl('', [Validators.required,
+        email: new FormControl(theEmail, [Validators.required,
                                     Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
       }),
       shippingAddress: this.formBuilder.group({

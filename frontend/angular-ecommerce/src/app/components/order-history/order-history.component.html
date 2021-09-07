@@ -1,0 +1,27 @@
+<div class="main-content">
+
+  <div class="container">
+    <h3>Your Orders</h3>
+
+    <div *ngIf="orderHistoryList.length > 0">
+      <table class="table table-bordered">
+        <tr>
+          <th width="20%">Order Tracking Number</th>
+          <th width="10%">Total Price</th>
+          <th width="10%">Total Quantity</th>
+          <th width="10%">Date</th>
+        </tr>
+
+        <tr *ngFor="let theOrderHistoryList of orderHistoryList">
+
+          <td>{{theOrderHistoryList.orderTrackingNumber}} </td>
+          <td>{{theOrderHistoryList.totalPrice | currency: 'INR'}}</td>
+          <td>{{theOrderHistoryList.totalQuantity}}</td>
+          <td>{{theOrderHistoryList.dateCreated | date: 'medium'}}</td>
+
+        </tr>
+      </table>
+    </div>
+  </div>
+
+</div>
