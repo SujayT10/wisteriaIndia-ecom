@@ -21,9 +21,9 @@ export class ProductListComponent implements OnInit {
 
   // for paginations
   thePageNumber: number = 1;
-  thePageSize: number = 16;
+  thePageSize: number = 4;
   theTotalElement: number = 0;
-  maxSize: number = 5;
+  maxSize: number = 2;
   boundaryLinks: boolean = true
 
 

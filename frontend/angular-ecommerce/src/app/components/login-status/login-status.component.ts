@@ -10,6 +10,8 @@ export class LoginStatusComponent implements OnInit {
 
   isAuthenticated: boolean = false;
   userFullName: string;
+  public isMenuCollapsed = true;
+  public isCollapsed = false;
 
   storage: Storage = sessionStorage;
 

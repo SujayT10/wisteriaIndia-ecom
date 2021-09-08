@@ -113,11 +113,11 @@ a,a:hover{
 
 .page-container{
   background:#e5e5e5;
-  padding-left:200px
+  padding-left:0
 }
 
 .main-content{
-  padding-top:116px;
+  padding-top:50px;
   min-height:100vh
 }
 
@@ -246,7 +246,7 @@ input.au-input.au-input-xl{
   font-size:22px;
   float:left;
   margin-top:16px;
-  color:#fff;
+  /* color:#fff; */
   margin-left:15px
 }
 
@@ -284,11 +284,11 @@ input.au-input.au-input-xl{
   right:0;
   min-width:95px;
   color:#fff;
-  border:1px solid #205b8d;
+  border:1px solid #0A58CA;
   -webkit-border-radius:3px;
   -moz-border-radius:3px;
   border-radius:43px;
-  background:#205b8d
+  background:#0A58CA
 }
 
 .au-btn-submit:hover{
@@ -355,12 +355,12 @@ input.au-input.au-input-xl{
   padding:11.5px 0
 }
 
-.menu-sidebar-content{
+/* .menu-sidebar-content{
   position:relative;
   height:-webkit-calc(100vh - 75px);
   height:-moz-calc(100vh - 75px);
   height:calc(100vh - 75px)
-}
+} */
 
 .navbar-sidebar{
   padding:35px;
@@ -765,11 +765,11 @@ font-weight: bold;
 * ----------------------------
 */
 
-footer ul li a{
+/* footer ul li a{
   color:#fff
 }
 footer{
-  background:#232324;
+  background:#0DA8E4;
   z-index:1;
   position:relative;
   text-align:center
@@ -782,7 +782,7 @@ footer ul li{
   display:inline-block;
   font-size:14px;
   padding:10px 20px
-}
+} */
 
 /*
 * ----------------------------
@@ -854,7 +854,7 @@ footer ul li{
   }
    .main-content{
       padding-top:50px;
-      padding-bottom:100px
+      /* padding-bottom:100px */
   }
    .cart-area.d-n{
       display:none

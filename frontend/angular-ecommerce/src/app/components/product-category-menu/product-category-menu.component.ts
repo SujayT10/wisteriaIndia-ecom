@@ -10,6 +10,10 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ProductCategoryMenuComponent implements OnInit {
 
+  public isMenuCollapsed = true;
+  public isCollapsed = false;
+  active = 1;
+
   productCategory: ProductCategory[] = [];
 
   constructor(private productService: ProductService) { }

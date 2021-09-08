@@ -1,23 +1,23 @@
 <div class="page-wrapper">
 
   <!-- MENU SIDEBAR-->
-  <aside class="menu-sidebar d-none d-lg-block">
-    <div class="logo">
-      <a routerLink="/products">
-        <img src="assets/images/LogoSiteBlack.png" alt="luv2shop" class="img-responsive">
-      </a>
-    </div>
+  <!-- <aside class="menu-sidebar d-none d-lg-block">
+      <div class="logo">
+        <a routerLink="/products">
+          <img src="assets/images/LogoSiteBlack.png" alt="luv2shop" class="img-responsive">
+        </a>
+      </div>
 
-    <app-product-category-menu></app-product-category-menu>
+      <app-product-category-menu></app-product-category-menu>
 
-  </aside>
+    </aside> -->
   <!-- END MENU SIDEBAR-->
 
 
   <!-- PAGE CONTAINER-->
   <div class="page-container">
     <!-- HEADER DESKTOP-->
-    <header class="header-desktop">
+    <!-- <header class="header-desktop">
       <div class="section-content section-content-p30">
         <div class="container-fluid">
           <div class="header-wrap">
@@ -32,7 +32,57 @@
           <div class="account-wrap"></div>
         </div>
       </div>
-    </header>
+    </header> -->
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
+
+      <div class="container">
+        <a class="navbar-brand" [routerLink]="'.'">
+          <img src="assets/images/LogoSiteBlack.png" alt="Wisteria India" class="img-responsive">
+        </a>
+
+        <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
+        <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
+          &#9776;
+        </button>
+
+
+        <!-- Step 2: Add the ngbCollapse directive to the element below. -->
+        <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" style="flex-grow: 0">
+
+          <app-search></app-search>
+
+          <app-product-category-menu></app-product-category-menu>
+
+          <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item active">
+              <!-- Step 4: Close the menu when a link is clicked. -->
+              <a class="nav-link" routerLink="/products" (click)="isMenuCollapsed = true">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/products" (click)="isMenuCollapsed = true">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="'.'" (click)="isMenuCollapsed = true">Contact US</a>
+            </li>
+
+            <li class="nav-item">
+              <app-login-status></app-login-status>
+            </li>
+
+          </ul>
+
+          <app-cart-status></app-cart-status>
+
+        </div>
+      </div>
+    </nav>
+
+
+
+
     <!-- END HEADER DESKTOP-->
 
     <!-- MAIN CONTENT-->
