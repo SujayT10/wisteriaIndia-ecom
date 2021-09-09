@@ -21,7 +21,7 @@ export class ProductListComponent implements OnInit {
 
   // for paginations
   thePageNumber: number = 1;
-  thePageSize: number = 4;
+  thePageSize: number = 8;
   theTotalElement: number = 0;
   maxSize: number = 2;
   boundaryLinks: boolean = true
@@ -95,7 +95,7 @@ export class ProductListComponent implements OnInit {
   //   this.thePageSize = pageSize;
   //   this.thePageNumber =1;
   //   this.listProducts();
-  // }
+  // // }
 
 }
 

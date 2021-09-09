@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgbCarouselConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   public isMenuCollapsed = true;
   public isCollapsed = false;
- 
+
+  public isCategoryCollapsed = true;
+
+  showNavigationArrows = true;
+  showNavigationIndicators = false;
+
+  closeResult: string;
+
+  constructor() {
+
+  }
+
+
 }

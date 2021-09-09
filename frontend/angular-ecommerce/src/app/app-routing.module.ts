@@ -9,6 +9,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
 
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path: 'category/:id', component: ProductListComponent },
   { path: 'category', component: ProductListComponent },
   { path: 'products', component: ProductListComponent },
-  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   // {path: '**', component: PageNotFoundComponent},
   { path: '**', redirectTo: '/products', pathMatch: 'full' }
 

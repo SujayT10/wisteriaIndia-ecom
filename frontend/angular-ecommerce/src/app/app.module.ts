@@ -25,6 +25,7 @@ import { Router } from '@angular/router';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
+import { HomeComponent } from './components/home/home.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth: any, injector: any) => {
@@ -50,7 +51,8 @@ const oktaConfig = Object.assign({
     LoginComponent,
     LoginStatusComponent,
     MembersPageComponent,
-    OrderHistoryComponent
+    OrderHistoryComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
