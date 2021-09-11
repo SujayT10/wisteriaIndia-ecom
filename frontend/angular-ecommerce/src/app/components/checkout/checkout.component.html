@@ -1,11 +1,12 @@
-<div class="main-content page-m">
-  <div class="section-content section-content-p30">
-    <div class="container-fluid">
+<div class="container">
 
-      <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+  <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+
+    <div class="row">
+      <div class="col-md-6">
 
         <!-- customer form group -->
-        <div formGroupName="customer" class="form-area">
+        <div formGroupName="customer" class="form-area mt-5">
           <h3>Customer</h3>
 
           <!-- First Name -->
@@ -71,6 +72,7 @@
           </div>
         </div>
         <!--End customer form group -->
+
 
         <!-- Shipping address form group -->
         <div formGroupName="shippingAddress" class="form-area">
@@ -233,7 +235,8 @@
               <div class="input-space">
                 <input formControlName="street" type="text">
 
-                <div *ngIf="billingAddressStreet.invalid && (billingAddressStreet.dirty || billingAddressStreet.touched)"
+                <div
+                  *ngIf="billingAddressStreet.invalid && (billingAddressStreet.dirty || billingAddressStreet.touched)"
                   class="alert alert-danger mt-1">
                   <div *ngIf="billingAddressStreet.errors.required || billingAddressStreet.errors.noWhiteSpaces">
                     Street is required
@@ -297,7 +300,8 @@
               <div class="input-space">
                 <input formControlName="zipCode" type="text">
 
-                <div *ngIf="billingAddressZipCode.invalid && (billingAddressZipCode.dirty || billingAddressZipCode.touched)"
+                <div
+                  *ngIf="billingAddressZipCode.invalid && (billingAddressZipCode.dirty || billingAddressZipCode.touched)"
                   class="alert alert-danger mt-1">
                   <div *ngIf="billingAddressZipCode.errors.required || billingAddressZipCode.errors.noWhiteSpaces">
                     Zip-Code is required
@@ -315,14 +319,18 @@
         </div>
         <!-- End Billing address form group -->
 
-        <!-- Credit card form group -->
-        <div formGroupName="creditCartInfo" class="form-area">
+
+      </div>
+      <div class="col-md-6">
+
+         <!-- Credit card form group -->
+         <div formGroupName="creditCartInfo" class="form-area mt-5">
           <h3>Credit Card</h3>
 
           <!-- cardType -->
           <div class="row">
-            <div class="col-md-2"><label>Card Type</label></div>
-            <div class="col-md-9">
+            <div class="col-md-3"><label>Card Type</label></div>
+            <div class="col-md-8">
               <div class="input-space">
                 <select formControlName="cardType">
                   <option>Visa</option>
@@ -332,7 +340,7 @@
                 <div *ngIf="creditCardType.invalid && (creditCardType.dirty || creditCardType.touched)"
                   class="alert alert-danger mt-1">
                   <div *ngIf="creditCardType.errors.required">
-                   Card Type is required
+                    Card Type is required
                   </div>
                 </div>
 
@@ -342,18 +350,19 @@
 
           <!-- Card Name -->
           <div class="row">
-            <div class="col-md-2"><label>Name on Card</label></div>
-            <div class="col-md-9">
+            <div class="col-md-3"><label>Name on Card</label></div>
+            <div class="col-md-8">
               <div class="input-space">
                 <input formControlName="nameOnCard" type="text">
 
-                <div *ngIf="creditCardNameOnCard.invalid && (creditCardNameOnCard.dirty || creditCardNameOnCard.touched)"
+                <div
+                  *ngIf="creditCardNameOnCard.invalid && (creditCardNameOnCard.dirty || creditCardNameOnCard.touched)"
                   class="alert alert-danger mt-1">
                   <div *ngIf="creditCardNameOnCard.errors.required || creditCardNameOnCard.errors.noWhiteSpaces">
                     Name on Card is required
                   </div>
                   <div *ngIf="creditCardNameOnCard.errors.minlength">
-                    Name on Card  must be at least 2 characters long
+                    Name on Card must be at least 2 characters long
                   </div>
                 </div>
 
@@ -363,8 +372,8 @@
 
           <!-- Card number -->
           <div class="row">
-            <div class="col-md-2"><label>Card Number</label></div>
-            <div class="col-md-9">
+            <div class="col-md-3"><label>Card Number</label></div>
+            <div class="col-md-8">
               <div class="input-space">
                 <input formControlName="cardNumber" type="text">
 
@@ -374,7 +383,7 @@
                     Card Number is required
                   </div>
                   <div *ngIf="creditCardNumber.errors.pattern">
-                    Card Number  must be 16 digit long
+                    Card Number must be 16 digit long
                   </div>
                 </div>
 
@@ -384,18 +393,19 @@
 
           <!-- security number -->
           <div class="row">
-            <div class="col-md-2"><label>Security Code</label></div>
-            <div class="col-md-9">
+            <div class="col-md-3"><label>Security Code</label></div>
+            <div class="col-md-8">
               <div class="input-space">
                 <input formControlName="securityCode" type="text">
 
-                <div *ngIf="creditCardSecurityCode.invalid && (creditCardSecurityCode.dirty || creditCardSecurityCode.touched)"
+                <div
+                  *ngIf="creditCardSecurityCode.invalid && (creditCardSecurityCode.dirty || creditCardSecurityCode.touched)"
                   class="alert alert-danger mt-1">
                   <div *ngIf="creditCardSecurityCode.errors.required || creditCardSecurityCode.errors.noWhiteSpaces">
                     Security Code is required
                   </div>
                   <div *ngIf="creditCardSecurityCode.errors.pattern">
-                    Security Code  must be 3 digit long
+                    Security Code must be 3 digit long
                   </div>
                 </div>
 
@@ -406,8 +416,8 @@
 
           <!-- expressionMonth -->
           <div class="row">
-            <div class="col-md-2"><label>Expression Month</label></div>
-            <div class="col-md-9">
+            <div class="col-md-3"><label>Expression Month</label></div>
+            <div class="col-md-8">
               <div class="input-space">
                 <select formControlName="expressionMonth">
                   <option *ngFor="let month of creditCardMonth">
@@ -420,8 +430,8 @@
 
           <!-- expressionYear -->
           <div class="row">
-            <div class="col-md-2"><label>Expression Year</label></div>
-            <div class="col-md-9">
+            <div class="col-md-3"><label>Expression Year</label></div>
+            <div class="col-md-8">
               <div class="input-space">
                 <select formControlName="expressionYear" (change)="handelMonthsAndYears()">
                   <option *ngFor="let year of creditCardYear">
@@ -435,8 +445,6 @@
         </div>
         <!-- End Credit card  form group -->
 
-        <!--End customer form group -->
-
         <!-- review product -->
         <div class="form-area">
           <h3>Review Your Order</h3>
@@ -447,10 +455,21 @@
         <!-- End review product -->
         <!-- submit button -->
         <div class="text-center">
-          <button type="submit" class="btn btn-info">Purchase</button>
+          <button type="submit" class="btn btn-primary btn-lg">Place Order</button>
         </div>
-      </form>
+
+      </div>
 
     </div>
-  </div>
+
+
+
+
+
+
+    <!--End customer form group -->
+
+
+  </form>
+
 </div>

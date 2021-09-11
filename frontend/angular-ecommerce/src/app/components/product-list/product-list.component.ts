@@ -18,14 +18,12 @@ export class ProductListComponent implements OnInit {
   currentCategoryName: any;
   searchMode: boolean = false;
 
-
   // for paginations
   thePageNumber: number = 1;
   thePageSize: number = 8;
   theTotalElement: number = 0;
   maxSize: number = 2;
   boundaryLinks: boolean = true
-
 
   constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute) { }
 
