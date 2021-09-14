@@ -796,7 +796,7 @@ footer ul li{
 
 @media (max-width:1600px){
   .au-input-xl{
-      min-width:290px
+      min-width:500px
   }
 }
 @media (max-width:1315px) and (min-width:992px){
@@ -871,7 +871,7 @@ footer ul li{
       justify-content:center
   }
    .au-input-xl{
-      min-width:350px
+      min-width:35px
   }
     .logo{
       text-align:center
