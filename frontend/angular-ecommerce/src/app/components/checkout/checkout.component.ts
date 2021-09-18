@@ -61,15 +61,8 @@ export class CheckoutComponent implements OnInit {
         state: new FormControl('', [Validators.required]),
         country: new FormControl('', [Validators.required]),
         zipCode: new FormControl('', [Validators.required, Validators.minLength(2), FormValidator.noWhiteSpaces])
-      }),
-      creditCartInfo: this.formBuilder.group({
-        cardType:  new FormControl('', [Validators.required]),
-        nameOnCard:new FormControl('', [Validators.required, Validators.minLength(2), FormValidator.noWhiteSpaces]),
-        cardNumber: new FormControl('', [Validators.required,Validators.pattern(`[0-9]{16}`)]),
-        securityCode:new FormControl('', [Validators.required,Validators.pattern(`[0-9]{3}`)]),
-        expressionMonth: [''],
-        expressionYear: [''],
       })
+
     });
 
     // populate credit card months
@@ -122,10 +115,10 @@ export class CheckoutComponent implements OnInit {
   get billingAddressCountry() { return this.checkoutFormGroup.get('billingAddress.country') }
   get billingAddressZipCode() { return this.checkoutFormGroup.get('billingAddress.zipCode') }
 
-  get creditCardType() { return this.checkoutFormGroup.get('creditCartInfo.cardType') }
-  get creditCardNameOnCard() { return this.checkoutFormGroup.get('creditCartInfo.nameOnCard') }
-  get creditCardNumber() { return this.checkoutFormGroup.get('creditCartInfo.cardNumber') }
-  get creditCardSecurityCode() { return this.checkoutFormGroup.get('creditCartInfo.securityCode') }
+  // get creditCardType() { return this.checkoutFormGroup.get('creditCartInfo.cardType') }
+  // get creditCardNameOnCard() { return this.checkoutFormGroup.get('creditCartInfo.nameOnCard') }
+  // get creditCardNumber() { return this.checkoutFormGroup.get('creditCartInfo.cardNumber') }
+  // get creditCardSecurityCode() { return this.checkoutFormGroup.get('creditCartInfo.securityCode') }
 
   onSubmit() {
     // console.log('I am From checkout component');

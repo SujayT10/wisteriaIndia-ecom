@@ -57,7 +57,6 @@
               <div class="input-space">
                 <input formControlName="email" type="text">
 
-
                 <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger mt-1">
                   <div *ngIf="email.errors.required">
                     Email is required
@@ -323,130 +322,8 @@
       </div>
       <div class="col-md-6">
 
-         <!-- Credit card form group -->
-         <div formGroupName="creditCartInfo" class="form-area mt-5">
-          <h3>Credit Card</h3>
-
-          <!-- cardType -->
-          <div class="row">
-            <div class="col-md-3"><label>Card Type</label></div>
-            <div class="col-md-8">
-              <div class="input-space">
-                <select formControlName="cardType">
-                  <option>Visa</option>
-                  <option>Master Card</option>
-                </select>
-
-                <div *ngIf="creditCardType.invalid && (creditCardType.dirty || creditCardType.touched)"
-                  class="alert alert-danger mt-1">
-                  <div *ngIf="creditCardType.errors.required">
-                    Card Type is required
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <!-- Card Name -->
-          <div class="row">
-            <div class="col-md-3"><label>Name on Card</label></div>
-            <div class="col-md-8">
-              <div class="input-space">
-                <input formControlName="nameOnCard" type="text">
-
-                <div
-                  *ngIf="creditCardNameOnCard.invalid && (creditCardNameOnCard.dirty || creditCardNameOnCard.touched)"
-                  class="alert alert-danger mt-1">
-                  <div *ngIf="creditCardNameOnCard.errors.required || creditCardNameOnCard.errors.noWhiteSpaces">
-                    Name on Card is required
-                  </div>
-                  <div *ngIf="creditCardNameOnCard.errors.minlength">
-                    Name on Card must be at least 2 characters long
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <!-- Card number -->
-          <div class="row">
-            <div class="col-md-3"><label>Card Number</label></div>
-            <div class="col-md-8">
-              <div class="input-space">
-                <input formControlName="cardNumber" type="text">
-
-                <div *ngIf="creditCardNumber.invalid && (creditCardNumber.dirty || creditCardNumber.touched)"
-                  class="alert alert-danger mt-1">
-                  <div *ngIf="creditCardNumber.errors.required || creditCardNumber.errors.noWhiteSpaces">
-                    Card Number is required
-                  </div>
-                  <div *ngIf="creditCardNumber.errors.pattern">
-                    Card Number must be 16 digit long
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <!-- security number -->
-          <div class="row">
-            <div class="col-md-3"><label>Security Code</label></div>
-            <div class="col-md-8">
-              <div class="input-space">
-                <input formControlName="securityCode" type="text">
-
-                <div
-                  *ngIf="creditCardSecurityCode.invalid && (creditCardSecurityCode.dirty || creditCardSecurityCode.touched)"
-                  class="alert alert-danger mt-1">
-                  <div *ngIf="creditCardSecurityCode.errors.required || creditCardSecurityCode.errors.noWhiteSpaces">
-                    Security Code is required
-                  </div>
-                  <div *ngIf="creditCardSecurityCode.errors.pattern">
-                    Security Code must be 3 digit long
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-
-          <!-- expressionMonth -->
-          <div class="row">
-            <div class="col-md-3"><label>Expression Month</label></div>
-            <div class="col-md-8">
-              <div class="input-space">
-                <select formControlName="expressionMonth">
-                  <option *ngFor="let month of creditCardMonth">
-                    {{ month }}
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <!-- expressionYear -->
-          <div class="row">
-            <div class="col-md-3"><label>Expression Year</label></div>
-            <div class="col-md-8">
-              <div class="input-space">
-                <select formControlName="expressionYear" (change)="handelMonthsAndYears()">
-                  <option *ngFor="let year of creditCardYear">
-                    {{ year }}
-                  </option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- End Credit card  form group -->
-
         <!-- review product -->
-        <div class="form-area">
+        <div class="form-area mt-5">
           <h3>Review Your Order</h3>
           <p>Total Quantity: {{totalQuantity}}</p>
           <p> Shipping Free</p>
