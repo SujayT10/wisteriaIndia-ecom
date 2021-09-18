@@ -1,3 +1,4 @@
+import { TermsAndConditionsComponent } from './policy/terms-and-conditions/terms-and-conditions.component';
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { MembersPageComponent } from './components/members-page/members-page.component';
 import { LoginComponent } from './components/login/login.component';
@@ -10,8 +11,14 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { CartDetailsComponent } from './components/cart-details/cart-details.component';
 import { OktaAuthGuard, OktaCallbackComponent } from '@okta/okta-angular';
 import { HomeComponent } from './components/home/home.component';
+import { PrivacyPolicyComponent } from './policy/privacy-policy/privacy-policy.component';
+import { CancellationRefundPolicyComponent } from './policy/cancellation-refund-policy/cancellation-refund-policy.component';
 
 const routes: Routes = [
+
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
+  { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
+  { path: 'cancellation-refund-policy', component: CancellationRefundPolicyComponent },
 
   { path: 'order-history', component: OrderHistoryComponent, canActivate: [OktaAuthGuard] },
   { path: 'members', component: MembersPageComponent, canActivate: [OktaAuthGuard] },

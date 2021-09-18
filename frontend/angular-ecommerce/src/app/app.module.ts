@@ -26,6 +26,9 @@ import { MembersPageComponent } from './components/members-page/members-page.com
 import { OrderHistoryComponent } from './components/order-history/order-history.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { HomeComponent } from './components/home/home.component';
+import { PrivacyPolicyComponent } from './policy/privacy-policy/privacy-policy.component';
+import { TermsAndConditionsComponent } from './policy/terms-and-conditions/terms-and-conditions.component';
+import { CancellationRefundPolicyComponent } from './policy/cancellation-refund-policy/cancellation-refund-policy.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth: any, injector: any) => {
@@ -52,7 +55,10 @@ const oktaConfig = Object.assign({
     LoginStatusComponent,
     MembersPageComponent,
     OrderHistoryComponent,
-    HomeComponent
+    HomeComponent,
+    PrivacyPolicyComponent,
+    TermsAndConditionsComponent,
+    CancellationRefundPolicyComponent
   ],
   imports: [
     BrowserModule,
