@@ -48,8 +48,12 @@
           <div class="col-md-6"></div>
           <div class="col-md-6 text-center">
 
-            <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [collectionSize]="theTotalElement"
-              (pageChange)="listProducts()" [maxSize]=maxSize [boundaryLinks]=boundaryLinks>
+            <ngb-pagination [(page)]="thePageNumber"
+                            [pageSize]="thePageSize"
+                            [collectionSize]="theTotalElement"
+                            (pageChange)="listProducts()"
+                            [maxSize]=maxSize
+                            [boundaryLinks]=boundaryLinks>
             </ngb-pagination>
 
             <!--
