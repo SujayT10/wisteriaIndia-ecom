@@ -6,19 +6,32 @@
       <div class="row">
 
         <div *ngFor="let tempProducts of products" class="col-md-3">
-          <div class="product-box">
+          <!-- bbb_deals -->
+          <div class="bbb_deals">
+            <div class="bbb_deals_slider_container">
+              <div class=" bbb_deals_item">
+                <div class="bbb_deals_image">
+                  <a routerLink="/products/{{tempProducts.id}}">
+                    <img src="{{tempProducts.imageUrl}}" class="img-responsive" />
+                  </a>
+                </div>
 
-            <a routerLink="/products/{{tempProducts.id}}">
-              <img src="{{tempProducts.imageUrl}}" class="img-responsive" />
-            </a>
+                <div class="bbb_deals_content">
 
-            <a routerLink="/products/{{tempProducts.id}}">
-              <h2>{{tempProducts.name}}</h2>
-            </a>
+                  <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                    <div class="bbb_deals_item_name">
+                      <a class="btn" routerLink="/products/{{tempProducts.id}}">{{tempProducts.name}}</a>
+                    </div>
+                  </div>
 
-            <div class="price">{{tempProducts.unitPrice | currency:'INR'}}</div>
+                  <div class="bbb_deals_item_price ml-auto">
+                    {{tempProducts.unitPrice | currency:'INR'}}
+                  </div>
+                  <a (click)="addToCart(tempProducts)" class="btn btn-primary mt-2">Add to Cart</a>
 
-            <a (click)="addToCart(tempProducts)" class="btn btn-primary btn-sm">Add to Cart</a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -30,16 +43,14 @@
       </div>
 
       <!-- start Pagination part -->
-      <div class="footer-pagination">
+      <div class="footer-pagination mt-4">
         <div class="row">
           <div class="col-md-6"></div>
           <div class="col-md-6 text-center">
 
             <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [collectionSize]="theTotalElement"
               (pageChange)="listProducts()" [maxSize]=maxSize [boundaryLinks]=boundaryLinks>
-
             </ngb-pagination>
-
 
             <!--
               <div  class="col-md-4 mt-2" style="text-align: right">
@@ -52,7 +63,6 @@
                 </select>
               </div> -->
 
-
           </div>
         </div>
       </div>
@@ -62,4 +72,3 @@
   </div>
 
 </div>
-
