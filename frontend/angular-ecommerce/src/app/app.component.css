@@ -1,0 +1,42 @@
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}
+
+@media (max-width: 479px){
+  .logo {
+      text-align: center;
+      max-height: 60px;
+  }
+}
+@media (max-width: 479px){
+  .logo {
+      text-align: center;
+      max-height: 60px;
+  }
+}
+@media (min-width: 576px) and (max-width: 767px){
+  .logo {
+      text-align: center;
+      max-height: 100px;
+  }
+}
+@media (min-width: 480px) and (max-width: 575px){
+  .logo {
+      text-align: center;
+      max-height: 60px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px){
+  .logo {
+      text-align: center;
+      max-height: 60px;
+  }
+}
+

@@ -1,0 +1,24 @@
+<div class="login-status-header">
+
+  <button *ngIf="!isAuthenticated" routerLink="/login" class="btn btn-light">Login</button>
+
+  <div *ngIf="isAuthenticated" class="navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" ngbDropdown>
+        <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button">
+          <i class="fas fa-user"></i> My Profile
+        </a>
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+          <a ngbDropdownItem >{{ userFullName }}</a>
+          <a ngbDropdownItem routerLink="/order-history">My Orders</a>
+          <a ngbDropdownItem routerLink="/members">Member</a>
+          <a ngbDropdownItem href="#" (click)="logout()">Logout</a>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+
+
+
+</div>

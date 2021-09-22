@@ -1,0 +1,98 @@
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-md text-center mt-3 ml-3">
+      <img src="assets/images/banner/3_1.jpg" alt="..." class="img-thumbnail">
+      <img src="assets/images/banner/3_2.jpg" alt="..." class="img-thumbnail">
+    </div>
+
+    <div class="col-md-7">
+
+      <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows"
+        [showNavigationIndicators]="showNavigationIndicators">
+        <ng-template ngbSlide *ngFor="let image of images">
+          <div class="picsum-img-wrapper">
+            <img [src]="image" alt="Random slide">
+          </div>
+          <!-- <div class="carousel-caption">
+            <h3>No mouse navigation</h3>
+            <p>This carousel hides navigation arrows and indicators.</p>
+          </div> -->
+        </ng-template>
+      </ngb-carousel>
+
+      <!-- <hr> -->
+
+      <!-- <div class="btn-group" role="group" aria-label="Carousel toggle controls">
+        <button type="button" (click)="showNavigationArrows = !showNavigationArrows" class="btn btn-outline-dark btn-sm">Toggle navigation arrows</button>
+        <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
+      </div> -->
+
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+
+  <div class="row mt-3 pt-3">
+    <div class="col-md-4 pt-2">
+      <img src="assets/images/banner/2_1.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+    <div class="col-md-4 pt-2">
+      <img src="assets/images/banner/2_2.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+    <div class="col-md-4 pt-2">
+      <img src="assets/images/banner/2_3.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+  </div>
+
+
+  <div class="row mt-3 pt-3">
+    <div class="col-md-4 pt-2">
+      <img src="assets/images/banner/featured-banner.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+    <div class="col-md-8 pt-2">
+
+        <div class="row">
+          <div class="col-md-6 pt-2">
+            <img routerLink="/category/3" src="assets/images/banner/1.jpg" class="img-fluid" alt="Responsive image">
+          </div>
+          <div class="col-md-6 pt-2">
+            <img routerLink="/products/63" src="assets/images/banner/2.jpg" class="img-fluid" alt="Responsive image">
+          </div>
+        </div>
+
+        <div class="row pt-3">
+          <div class="col-md-6 pt-2">
+            <img src="assets/images/banner/3.jpg" class="img-fluid" alt="Responsive image">
+          </div>
+          <div class="col-md-6 pt-2">
+            <img src="assets/images/banner/4.jpg" class="img-fluid" alt="Responsive image">
+          </div>
+        </div>
+
+        <!-- <div class="row mt-3 pt-3">
+          <div class="col-md-6">
+            <img src="assets/images/banner/5.jpg" class="img-fluid" alt="Responsive image">
+          </div>
+          <div class="col-md-6">
+            <img src="assets/images/banner/6.jpg" class="img-fluid" alt="Responsive image">
+          </div>
+        </div> -->
+
+    </div>
+  </div>
+
+
+
+  <div class="row mt-3 pt-3">
+    <div class="col-md-4 pt-2">
+      <img src="assets/images/banner/2_1.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+    <div class="col-md-4 pt-2">
+      <img src="assets/images/banner/2_2.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+    <div class="col-md-4 pt-2">
+      <img src="assets/images/banner/2_3.jpg" class="img-fluid" alt="Responsive image">
+    </div>
+  </div>
+</div>
