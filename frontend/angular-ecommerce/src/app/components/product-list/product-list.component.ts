@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
 import { ProductService } from 'src/app/service/product.service';
 import { CartService } from 'src/app/services/cart.service';
+
 
 @Component({
   selector: 'app-product-list',
@@ -25,7 +27,12 @@ export class ProductListComponent implements OnInit {
   maxSize: number = 2;
   boundaryLinks: boolean = true
 
-  constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute) { }
+  constructor(private productService: ProductService,
+              private cartService: CartService, private route: ActivatedRoute) {}
+
+  open(content: any){
+    this.cartService.open(content)
+  }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
@@ -94,6 +101,8 @@ export class ProductListComponent implements OnInit {
   //   this.thePageNumber =1;
   //   this.listProducts();
   // // }
+
+
 
 }
 

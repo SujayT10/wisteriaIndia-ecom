@@ -17,6 +17,10 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private productService: ProductService, private cartService: CartService, private route: ActivatedRoute,
                 private router:Router) { }
 
+  open(content: any){
+    this.cartService.open(content)
+  }
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(() => {
       this.handelProductDetails();

@@ -1,3 +1,4 @@
+
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -26,4 +27,6 @@ export class CheckoutService {
 
     return this.httpClient.post<Purchase>(this.purchaseUrl, purchase);
   }
+
+
 }

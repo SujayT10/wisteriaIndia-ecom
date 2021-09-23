@@ -40,7 +40,16 @@
                       <div class="bbb_deals_item_price ml-auto">
                         {{tempProducts.unitPrice | currency:'INR'}}
                       </div>
-                      <a (click)="addToCart(tempProducts)" class="btn btn-primary mt-2">Add to Cart</a>
+                      <!-- <a (click)="addToCart(tempProducts)" class="btn btn-primary mt-2">Add to Cart</a> -->
+
+
+                      <ng-template #content>
+                        <ngb-alert type="success" [dismissible]="false">
+                          <strong>Successfully</strong> added to cart..!!
+                        </ngb-alert>
+                      </ng-template>
+
+                    <button class="btn btn-primary mr-2 mt-2" (click)="addToCart(tempProducts)" (click)="open(content)">Add to Cart</button>
 
                     </div>
                   </div>

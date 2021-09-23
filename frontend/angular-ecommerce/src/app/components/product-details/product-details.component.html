@@ -16,8 +16,19 @@
 
         <div class="row">
           <div class="col-sm-3">
-            <a (click)="addToCart()" class="btn btn-primary btn-lg mt-3 ">Add to cart</a><br>
+            <!-- <a (click)="addToCart()" class="btn btn-primary btn-lg mt-3 ">Add to cart</a><br> -->
+
+            <ng-template #content>
+              <ngb-alert type="success" [dismissible]="false">
+                <strong>Successfully</strong> added to cart..!!
+              </ngb-alert>
+            </ng-template>
+
+          <button class="btn btn-primary btn-lg mt-3" (click)="addToCart()" (click)="open(content)">Add to Cart</button>
+
           </div>
+
+
           <div class="col-sm-3">
             <a (click)="toCheckout()" class="btn btn-success btn-lg mt-3">Buy Now</a><br>
           </div>
