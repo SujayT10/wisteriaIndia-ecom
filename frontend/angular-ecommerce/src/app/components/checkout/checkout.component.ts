@@ -33,6 +33,9 @@ export class CheckoutComponent implements OnInit {
 
   storage: Storage = sessionStorage;
 
+  // options: any
+  orderID: any;
+
   constructor(private formBuilder: FormBuilder, private formService: FormService,
               private cartService: CartService, private checkoutService: CheckoutService, private router: Router) { }
 
@@ -173,12 +176,42 @@ export class CheckoutComponent implements OnInit {
     this.checkoutService.placeOrder(purchase).subscribe({
         next:response =>{
           alert(`Your order hase been recived.\nOrder Traking number: ${response.orderTrakingNumber}`);
+          this.orderID = response.orderTrakingNumber;
           this.resetCart();
         },
         error: err =>{
           alert(`There was an error: ${err.message}`);
         }
       });
+
+    //   let options = {
+    //     "key": "rzp_live_MRlPp7s8awXv3r", // Enter the Key ID generated from the Dashboard
+    //     "amount": "500", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    //     "currency": "INR",
+    //     "name": "Wisteria India",
+    //     "description": "Test Transaction",
+    //     "image": "assets/images/LogoSiteBlack.png",
+    //     "order_id": "this.orderID", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    //     "handler": function (response: any){
+    //         alert(response.razorpay_payment_id);
+    //         alert(response.razorpay_order_id);
+    //         alert(response.razorpay_signature)
+    //     },
+    //     "prefill": {
+    //         "name": "this.firstName",
+    //         "email": "this.email",
+    //         "contact": "9975205714"
+    //     },
+    //     "notes": {
+    //         "address": "Razorpay Corporate Office"
+    //     },
+    //     "theme": {
+    //         "color": "#3399cc"
+    //     }
+    // };
+
+    // let rzp1 = new this.checkoutService.nativeWindow.Razorpay(options);
+    // rzp1.open();
 
   }
   resetCart() {
@@ -247,6 +280,11 @@ export class CheckoutComponent implements OnInit {
         // select 1st state as default
         formGroup.get('state').setValue(data[0]);
       });
+
+  }
+
+
+  pay(){
 
   }
 
