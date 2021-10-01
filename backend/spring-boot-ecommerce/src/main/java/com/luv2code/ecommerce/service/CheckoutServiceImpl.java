@@ -58,6 +58,8 @@ public class CheckoutServiceImpl implements  CheckoutService{
         //sqve to the db
         customerRepository.save(customer);
 
+
+
         // return the response
         return new PurchaseResponse(orderTrakingNumber);
     }

@@ -22,10 +22,10 @@
       <div class="col-md-2 ">
           <h5>Services</h5>
           <ul class="nav flex-column">
-            <li class="nav-item mb-2"><a href="http://family.wisteriaindia.com/#/registration" target="_blank" class="nav-link p-0 text-muted">Partner Registration</a></li>
-            <li class="nav-item mb-2"><a href="http://family.wisteriaindia.com/#/login" target="_blank"class="nav-link p-0 text-muted">Partner Login</a></li>
-            <li class="nav-item mb-2"><a href="http://family.wisteriaindia.com/#/employee-login" target="_blank" class="nav-link p-0 text-muted">Employee Login</a></li>
-            <li class="nav-item mb-2"><a href="http://family.wisteriaindia.com/#/talent-hunt-registration" target="_blank" class="nav-link p-0 text-muted">Talent Hunt</a></li>
+            <li class="nav-item mb-2"><a href="{{link}}/registration" target="_blank" class="nav-link p-0 text-muted">Partner Registration</a></li>
+            <li class="nav-item mb-2"><a href="{{link}}/login" target="_blank"class="nav-link p-0 text-muted">Partner Login</a></li>
+            <li class="nav-item mb-2"><a href="{{link}}/employee-login" target="_blank" class="nav-link p-0 text-muted">Employee Login</a></li>
+            <li class="nav-item mb-2"><a href="{{link}}/talent-hunt-registration" target="_blank" class="nav-link p-0 text-muted">Talent Hunt</a></li>
             <!-- <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li> -->
           </ul>
       </div>
@@ -39,15 +39,17 @@
           </p>
       </div>
       <ul  class="nav flex-column">
-          <li  class="nav-item mb-2">
+          <li  class="nav-item mb-2 nav-link p-0 text-muted">
              <h6>{{address1}}</h6>
              {{address2}}
           </li>
-          <li  class="nav-item mb-2">
-              {{phoneNumber}}
+          <li  class="nav-item mb-2 nav-link p-0 text-muted" >
+              
+              <a href="tel:{{phoneNumber}}" class="nav-link p-0 text-muted">{{phoneNumber}}</a>
+
           </li>
           <li  class="nav-item mb-2">
-              Email:<a href="mailto:customer.care@wisteriaindia.com">&nbsp;customer.care@wisteriaindia.com</a>
+            <a href="mailto:{{email}}" class="nav-link p-0 text-muted">{{email}}</a>
           </li>
       </ul>
       </div>
@@ -56,11 +58,11 @@
 
     <div class="d-flex justify-content-between py-4 my-4 border-top">
 
-      <p>&copy;  2021 Wisteria India Multitrade Private limited. | All Rights Reserved</p>
+      <p>&copy; {{copyright}}</p>
       <ul class="list-unstyled d-flex">
-        <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-twitter"></i></a></li>
-        <li class="ms-3"><a class="link-dark" href="https://www.instagram.com/wisteriaindia/"><i class="fab fa-instagram"></i></a></li>
-        <li class="ms-3"><a class="link-dark" href="#"><i class="fab fa-facebook-square"></i></a></li>
+        <li class="ms-3"><a class="link-dark" href="{{twitter}}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+        <li class="ms-3"><a class="link-dark" href="{{insta}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+        <li class="ms-3"><a class="link-dark" href="{{fb}}" target="_blank"><i class="fab fa-facebook-square"></i></a></li>
       </ul>
 
   </div>

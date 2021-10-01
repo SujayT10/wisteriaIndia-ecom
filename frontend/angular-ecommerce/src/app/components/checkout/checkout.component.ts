@@ -33,11 +33,11 @@ export class CheckoutComponent implements OnInit {
 
   storage: Storage = sessionStorage;
 
-  // options: any
+  FullName: string
   orderID: any;
 
   constructor(private formBuilder: FormBuilder, private formService: FormService,
-              private cartService: CartService, private checkoutService: CheckoutService, private router: Router) { }
+    private cartService: CartService, private checkoutService: CheckoutService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -49,7 +49,7 @@ export class CheckoutComponent implements OnInit {
         firstName: new FormControl('', [Validators.required, Validators.minLength(2), FormValidator.noWhiteSpaces]),
         lastName: new FormControl('', [Validators.required, Validators.minLength(2), FormValidator.noWhiteSpaces]),
         email: new FormControl(theEmail, [Validators.required,
-                                    Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
+        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')])
       }),
       shippingAddress: this.formBuilder.group({
         street: new FormControl('', [Validators.required, Validators.minLength(2), FormValidator.noWhiteSpaces]),
@@ -87,7 +87,7 @@ export class CheckoutComponent implements OnInit {
         this.countries = data; // console.log("resived countries: " + JSON.stringify(data));
       });
 
-      this.reviewCartDetails();
+    this.reviewCartDetails();
 
   }
 
@@ -96,10 +96,10 @@ export class CheckoutComponent implements OnInit {
     this.cartService.totalQuantity.subscribe(
       totalQuantity => this.totalQuantity = totalQuantity
     );
-     // subscribe to cartService.totalPrice
-     this.cartService.totalPrice.subscribe(
-       totalPrice => this.totalPrice = totalPrice
-     );
+    // subscribe to cartService.totalPrice
+    this.cartService.totalPrice.subscribe(
+      totalPrice => this.totalPrice = totalPrice
+    );
   }
 
   get firstName() { return this.checkoutFormGroup.get('customer.firstName') }
@@ -124,7 +124,6 @@ export class CheckoutComponent implements OnInit {
   // get creditCardSecurityCode() { return this.checkoutFormGroup.get('creditCartInfo.securityCode') }
 
   onSubmit() {
-    // console.log('I am From checkout component');
     if (this.checkoutFormGroup.invalid) {
       this.checkoutFormGroup.markAllAsTouched();
       return;
@@ -154,16 +153,16 @@ export class CheckoutComponent implements OnInit {
 
     // pupulate purchase -- shippingAddress
     purchase.shippingAddress = this.checkoutFormGroup.controls["shippingAddress"].value;
-    const shippingState: State =JSON.parse(JSON.stringify(purchase.shippingAddress.state));
-    const shippingCountry: Country =JSON.parse(JSON.stringify(purchase.shippingAddress.country));
+    const shippingState: State = JSON.parse(JSON.stringify(purchase.shippingAddress.state));
+    const shippingCountry: Country = JSON.parse(JSON.stringify(purchase.shippingAddress.country));
 
     purchase.shippingAddress.state = shippingState.name;
     purchase.shippingAddress.country = shippingCountry.name;
 
     // pupulate purchase -- billingAddress
     purchase.billingAddress = this.checkoutFormGroup.controls["billingAddress"].value;
-    const billingState: State =JSON.parse(JSON.stringify(purchase.billingAddress.state));
-    const billingCountry: Country =JSON.parse(JSON.stringify(purchase.billingAddress.country));
+    const billingState: State = JSON.parse(JSON.stringify(purchase.billingAddress.state));
+    const billingCountry: Country = JSON.parse(JSON.stringify(purchase.billingAddress.country));
 
     purchase.billingAddress.state = billingState.name;
     purchase.billingAddress.country = billingCountry.name;
@@ -174,46 +173,49 @@ export class CheckoutComponent implements OnInit {
 
     // call REST API via checkoutService
     this.checkoutService.placeOrder(purchase).subscribe({
-        next:response =>{
-          alert(`Your order hase been recived.\nOrder Traking number: ${response.orderTrakingNumber}`);
-          this.orderID = response.orderTrakingNumber;
-          this.resetCart();
-        },
-        error: err =>{
-          alert(`There was an error: ${err.message}`);
-        }
-      });
-
-    //   let options = {
-    //     "key": "rzp_live_MRlPp7s8awXv3r", // Enter the Key ID generated from the Dashboard
-    //     "amount": "500", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-    //     "currency": "INR",
-    //     "name": "Wisteria India",
-    //     "description": "Test Transaction",
-    //     "image": "assets/images/LogoSiteBlack.png",
-    //     "order_id": "this.orderID", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-    //     "handler": function (response: any){
-    //         alert(response.razorpay_payment_id);
-    //         alert(response.razorpay_order_id);
-    //         alert(response.razorpay_signature)
-    //     },
-    //     "prefill": {
-    //         "name": "this.firstName",
-    //         "email": "this.email",
-    //         "contact": "9975205714"
-    //     },
-    //     "notes": {
-    //         "address": "Razorpay Corporate Office"
-    //     },
-    //     "theme": {
-    //         "color": "#3399cc"
-    //     }
-    // };
-
-    // let rzp1 = new this.checkoutService.nativeWindow.Razorpay(options);
-    // rzp1.open();
+      next: response => {
+        // alert(`Your order hase been recived.\nOrder Traking number: ${response.orderTrakingNumber}`);
+        this.orderID = response.orderTrakingNumber;
+        // this.pay(this.orderID)
+        this.pay(this.orderID, this.totalPrice)
+        this.resetCart();
+      },
+      error: err => {
+        alert(`There was an error: ${err.message}`);
+      }
+    });
 
   }
+
+  options = {
+    "key": "rzp_live_MRlPp7s8awXv3r", // Enter the Key ID generated from the Dashboard
+    "amount": "100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "Wisteria India Pvt Ltd",
+    "description": "Test Transaction",
+    "image": "src/assets/images/LogoBlack1.png",
+    "order_id": "", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "prefill": {
+      "name": "",
+      "email": "",
+      "contact": ""
+    },
+    "notes": {
+      "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+      "color": "#3399cc"
+    }
+  };
+
+  pay(_orderID: any, _totalPrice: any) {
+    this.options.amount = `${_totalPrice * 100}`
+    this.options.description = `ID: ${_orderID}`
+    let rzp1 = new this.checkoutService.nativeWindow.Razorpay(this.options);
+    rzp1.open();
+  }
+
   resetCart() {
     this.cartService.cartItems = [];
     this.cartService.totalPrice.next(0);
@@ -283,9 +285,5 @@ export class CheckoutComponent implements OnInit {
 
   }
 
-
-  pay(){
-
-  }
 
 }

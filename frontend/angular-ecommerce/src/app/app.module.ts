@@ -30,6 +30,8 @@ import { PrivacyPolicyComponent } from './policy/privacy-policy/privacy-policy.c
 import { TermsAndConditionsComponent } from './policy/terms-and-conditions/terms-and-conditions.component';
 import { CancellationRefundPolicyComponent } from './policy/cancellation-refund-policy/cancellation-refund-policy.component';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth: any, injector: any) => {
@@ -71,6 +73,12 @@ const oktaConfig = Object.assign({
     NgxUiLoaderModule,
     NgxUiLoaderHttpModule.forRoot({
       showForeground: true,
+    }),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
     })
   ],
   providers: [ProductService, { provide: OKTA_CONFIG, useValue: oktaConfig },
