@@ -8,21 +8,12 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 })
 export class HomeComponent implements OnInit {
 
-  public isMenuCollapsed = true;
-  public isCollapsed = false;
 
-  public isCategoryCollapsed = true;
+  images = [1,2,3,4].map((n) => `assets/images/banner/slider/${n}.jpg`);
 
-  showNavigationArrows = true;
-  showNavigationIndicators = false;
-
-  images = [11, 22, 33].map((n) => `assets/images/banner/${n}.jpg`);
-
-      constructor(config: NgbCarouselConfig) {
-      // customize default values of carousels used by this component tree
-      config.showNavigationArrows = true;
-      config.showNavigationIndicators = true;
-    }
+  constructor() {
+    const showNavigationIndicators = false;
+  }
 
   ngOnInit(): void {
   }

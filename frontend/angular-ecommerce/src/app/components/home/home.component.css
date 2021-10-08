@@ -1,162 +1,117 @@
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,700,400italic);
+/* Try setting this to true :) */
 
-h1,
-h1+p {
-	margin: 30px 15px 0;
-	font-weight: 300;
+p {
+  margin: 1.6em 0;
 }
-h1+p a {
-	color: #333;
-}
-h1+p a:hover {
-	text-decoration: none;
-}
-h2 {
-	margin: 60px 15px 0;
-	padding: 0;
-	font-weight: 300;
-}
-h2 span {
-	margin-left: 1em;
-	color: #aaa;
-	font-size: 85%;
-}
-.column {
-	margin: 15px 15px 0;
-	padding: 0;
-}
-.column:last-child {
-	padding-bottom: 60px;
-}
-.column::after {
-	content: '';
-	clear: both;
-	display: block;
-}
-.column div {
-	position: relative;
-	float: left;
-	width: 300px;
-	height: 200px;
-	margin: 0 0 0 0;
-	padding: 0;
-}
-.column div:first-child {
-	margin-left: 0;
-}
-.column div span {
-	position: absolute;
-	bottom: -20px;
-	left: 0;
-	z-index: -1;
-	display: block;
-	width: 300px;
-	margin: 0;
-	padding: 0;
-	color: #444;
-	font-size: 18px;
-	text-decoration: none;
-	text-align: center;
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
-	opacity: 0;
-}
-figure {
-	width: 300px;
-	/* height: 300px;
-	margin: 0; */
-	padding: 0;
-	background: #fff;
-	overflow: hidden;
-}
-figure:hover+span {
-	bottom: -36px;
-	opacity: 1;
+
+hr {
+  margin: 2em 0;
+  text-align: center;
+  /* line-height: 1px; */
+  height: 1px;
+  background: #ddd;
+  /* border: 15px solid #fff; */
+  border-left: 0;
+  border-right: 0;
+  font-size: 1.5em;
 }
 
 
-/* Zoom In #1 */
-.hover01 figure img {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+article {
+  margin: 0 auto;
+  max-width: 100%;
+  /* padding: 40px 11.14%; */
+  word-break: break-word;
+  hyphens: auto;
 }
-.hover01 figure:hover img {
-	-webkit-transform: scale(1.3);
-	transform: scale(1.3);
+article p:first-of-type:first-letter {
+  float: left;
+  font-size: 4.7rem;
+  line-height: 6.5rem;
+  margin: 0 10px 0 0;
 }
+/* article p:not(:first-of-type) {
+  text-indent: 1.4em;
+} */
 
-
-@-webkit-keyframes circle {
-	0% {
-		opacity: 1;
-	}
-	40% {
-		opacity: 1;
-	}
-	100% {
-		width: 200%;
-		height: 200%;
-		opacity: 0;
-	}
-}
-@keyframes circle {
-	0% {
-		opacity: 1;
-	}
-	40% {
-		opacity: 1;
-	}
-	100% {
-		width: 200%;
-		height: 200%;
-		opacity: 0;
-	}
-}
-
-/* ------------------------------------------------------ */
-
-
-.card2 {
-  display: block;
-  top: 0px;
-  position: relative;
-  /* max-width: 262px; */
-  background-color: #f2f8f9;
-  border-radius: 4px;
-  padding: 10px 10px;
-  /* margin: 12px; */
-  text-decoration: none;
-  z-index: 0;
-  overflow: hidden;
-  border: 1px solid #f2f8f9;
-}
-.card2:hover {
-    transition: all 0.2s ease-out;
-    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
-    top: -4px;
-    border: 1px solid #cccccc;
-    background-color: white;
+@media only screen and (max-width: 700px) {
+  article {
+    font-size: 0.85em;
+    line-height: 1.7em;
+    margin-bottom: 30px;
+    padding: 8%;
+  }
+  article p:first-of-type:first-letter {
+    font-size: 4.6rem;
+    line-height: 5.2rem;
+    margin: 0 10px 0 0;
   }
 
-  .card2:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: -16px;
-    right: -16px;
-    /* background: #00838d; */
-    height: 32px;
-    width: 32px;
-    border-radius: 32px;
-    transform: scale(2);
-    transform-origin: 50% 50%;
-    transition: transform 0.15s ease-out;
+}
+@media only screen and (max-width: 502px) {
+  article {
+    width: auto;
+    font-size: 0.8em;
+    line-height: 1.6em;
+  }
+  article p:first-of-type:first-letter {
+    font-size: 4rem;
+    line-height: 4.5rem;
+    margin: 0 6px 0 0;
   }
 
-  .card2:hover:before {
-    transform: scale(2.15);
+}
+@-webkit-keyframes in {
+  0% {
+    opacity: 0;
   }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-moz-keyframes out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
-  /* --------------------------- */
+/* ------------------------------ */
+
+
 

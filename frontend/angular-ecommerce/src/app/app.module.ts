@@ -19,7 +19,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 
-import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular'; 4
+import { OKTA_CONFIG, OktaAuthModule } from '@okta/okta-angular';
 import myAppConfig from './config/my-app-config';
 import { Router } from '@angular/router';
 import { MembersPageComponent } from './components/members-page/members-page.component';
@@ -32,6 +32,19 @@ import { CancellationRefundPolicyComponent } from './policy/cancellation-refund-
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatBadgeModule} from '@angular/material/badge';
+import { FlexLayoutModule } from "@angular/flex-layout";
+import { ProductListHomeComponent } from './components/product-list-home/product-list-home.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { AboutUsComponent } from './components/about-us/about-us.component';
+import { TestimonialComponent } from './components/testimonial/testimonial.component';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth: any, injector: any) => {
@@ -61,7 +74,11 @@ const oktaConfig = Object.assign({
     HomeComponent,
     PrivacyPolicyComponent,
     TermsAndConditionsComponent,
-    CancellationRefundPolicyComponent
+    CancellationRefundPolicyComponent,
+    ProductListHomeComponent,
+    ContactUsComponent,
+    AboutUsComponent,
+    TestimonialComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +96,15 @@ const oktaConfig = Object.assign({
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    BrowserAnimationsModule,
+     MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatIconModule,
+    MatButtonModule,
+    MatBadgeModule,
+    FlexLayoutModule
   ],
   providers: [ProductService, { provide: OKTA_CONFIG, useValue: oktaConfig },
               { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],

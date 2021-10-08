@@ -1,127 +1,97 @@
-<div class="container">
-
-
-
-  <div class="row">
-
-    <div class="col-md text-center mt-2 ml-3 hover01 column">
-      <figure><img src="assets/images/banner/3_3.jpeg" alt="..." class="img-thumbnail"></figure>
-      <figure><img src="assets/images/banner/3_4.jpeg" alt="..." class="img-thumbnail"></figure>
+<!-- Slider -->
+<ngb-carousel >
+  <ng-template ngbSlide *ngFor="let img of images; index as i">
+    <div class="picsum-img-wrapper">
+      <img [src]="img" alt="Random first slide">
     </div>
+  </ng-template>
+</ngb-carousel>
 
+<!-- Slider -->
 
-    <div class="col-md-7 mt-2">
-
-      <ngb-carousel *ngIf="images" [showNavigationArrows]="showNavigationArrows"
-        [showNavigationIndicators]="showNavigationIndicators">
-        <ng-template ngbSlide *ngFor="let image of images">
-          <div class="picsum-img-wrapper">
-            <img [src]="image" alt="Random slide">
-          </div>
-          <!-- <div class="carousel-caption">
-            <h3>No mouse navigation</h3>
-            <p>This carousel hides navigation arrows and indicators.</p>
-          </div> -->
-        </ng-template>
-      </ngb-carousel>
-
-      <!-- <hr> -->
-
-      <!-- <div class="btn-group" role="group" aria-label="Carousel toggle controls">
-        <button type="button" (click)="showNavigationArrows = !showNavigationArrows" class="btn btn-outline-dark btn-sm">Toggle navigation arrows</button>
-        <button type="button" (click)="showNavigationIndicators = !showNavigationIndicators" class="btn btn-outline-dark btn-sm">Toggle navigation indicators</button>
-      </div> -->
-
-    </div>
-    <div class="col-md-1"></div>
+<!-- product-list-home -->
+<div class="row">
+  <div class="col-md-9">
+    <app-product-list-home></app-product-list-home>
   </div>
-
-  <div class="row mt-2 pt-1">
-    <div class="col-md-4 pt-1">
-      <a class="card2">
-        <img src="assets/images/banner/2_1.jpg" class="img-fluid" alt="Responsive image">
-      </a>
-    </div>
-    <div class="col-md-4 pt-1">
-      <a class="card2">
-        <img src="assets/images/banner/2_2.jpg" class="img-fluid" alt="Responsive image">
-      </a>
-    </div>
-    <div class="col-md-4 pt-1">
-      <a class="card2">
-        <img src="assets/images/banner/2_3.jpg" class="img-fluid" alt="Responsive image">
-      </a>
-    </div>
-  </div>
-
-
-
-
-  <div class="row mt-2 pt-1">
-    <div class="col-md-4 pt-2">
-      <a class="card2">
-        <img src="assets/images/banner/featured-banner.jpg" class="img-fluid" alt="Responsive image">
-      </a>
-    </div>
-    <div class="col-md-8 pt-1">
-
-        <div class="row">
-          <div class="col-md-6 pt-1">
-            <a class="card2">
-              <img src="assets/images/banner/1.jpg" class="img-fluid" alt="Responsive image">
-            </a>
-          </div>
-          <div class="col-md-6 pt-1">
-            <a class="card2">
-              <img src="assets/images/banner/2.jpg" class="img-fluid" alt="Responsive image">
-            </a>
-          </div>
-        </div>
-
-        <div class="row pt-1">
-          <div class="col-md-6 pt-1">
-            <a class="card2">
-              <img src="assets/images/banner/3.jpg" class="img-fluid" alt="Responsive image">
-            </a>
-           </div>
-          <div class="col-md-6 pt-1">
-            <a class="card2">
-              <img src="assets/images/banner/4.jpg" class="img-fluid" alt="Responsive image">
-            </a>
-          </div>
-        </div>
-
-        <!-- <div class="row mt-3 pt-3">
-          <div class="col-md-6">
-            <img src="assets/images/banner/5.jpg" class="img-fluid" alt="Responsive image">
-          </div>
-          <div class="col-md-6">
-            <img src="assets/images/banner/6.jpg" class="img-fluid" alt="Responsive image">
-          </div>
-        </div> -->
-
-    </div>
-  </div>
-
-
-
-  <div class="row mt-2 pt-1">
-    <div class="col-md-4 pt-1">
-      <a class="card2">
-        <img src="assets/images/banner/2_1.jpg" class="img-fluid" alt="Responsive image">
-      </a>
-    </div>
-    <div class="col-md-4 pt-1">
-      <a class="card2">
-        <img src="assets/images/banner/2_2.jpg" class="img-fluid" alt="Responsive image">
-      </a>
-    </div>
-    <div class="col-md-4 pt-1">
-      <a class="card2" >
-        <img src="assets/images/banner/2_3.jpg" class="img-fluid" alt="Responsive image">
-      </a>
-    </div>
+  <div class="col-md-3 my-5">
+    <figure><img src="assets/images/banner/3_4.jpeg" alt="..."></figure>
   </div>
 </div>
 
+<!-- End product-list-home -->
 
+<!-- <app-product-list-home></app-product-list-home> -->
+
+<!-- about us -->
+<div class="container border-top"></div>
+<div class="row my-2">
+  <div class="col-md-3">
+    <app-about-us></app-about-us>
+  </div>
+  <div class="col-md-9">
+    <article>
+
+      <p>Wisteria India Multitrade Pvt. Ltd., which started its operations in the year 2017, deals in Organic and Herbal
+        Food Products.
+        We constantly expand all range products, Wisteria India growing his Business with Values.
+        Together we can achieved more </p>
+      <!-- <hr> -->
+      <p>Interrelation to other rights. This reads “all human rights are universal, indivisible and interdependent and
+        interrelated"
+        The right to food is considered interlinked with the following human rights in particular: Right to life, Right
+        to livelihood,
+        Right to health, Right to property, Freedom of Expression, Freedom of Information, Right to Education, Freedom
+        of Association,
+        and the Right to Water. Other relevant rights include: the Right to Work, the Right to Social Security, the
+        Right to Social welfare,
+        and the Right to an adequate standard of living. </p>
+      <p>Household food security exists when all members, at all times, have access to enough food for an active,
+        healthy life.
+        Individuals who are food secure do not live in hunger or fear of starvation. India is a Land Of Diversity exists
+        in the term of Culture,
+        Trading, Religion, Language, Festival, etc.The constitute of India prohibits discrimination. Sometimes wealth
+        creates economic difference,
+        making some people rich and some people poor. Difference in income lead to inequality and affect peoples in many
+        ways from making their basic Needs take food,
+        clothing and shelter to having access to medical facilities, education etc</p>
+      <!-- <hr> -->
+      <p>I hold a token of the second bang in my hands. No bang, no show – most would say what I’m holding is just a
+        rock. Walk into any proper house of curiosities and ask to see their hand axes. They will show you something
+        similar to what I hold: a stone resembling an arrowhead with a tip that is honed and sharp. It will be close to
+        the size of a deck of cards and fit comfortably into the hand. Hand axes are frequently cited as the first
+        human-made objects; the oldest specimens, discovered in Ethiopia, are estimated to be about two-and-a-half
+        million years old. We have been molding this world for a very long time.</p>
+      <p>Discrimination against on the basic of their wealth emerges due to Prejudice is an unreasonable opinion about a
+        person.
+        We can overcome prejudice by understanding people and Basic Need Free Nation Mission A stereotype is a fixed
+        idea that people have someone.
+        The Indian Constitution Preamble which forms the introduction provides Justice, Equality, Liberty and Fraternity
+        for all citizens of Indians</p>
+      <!-- <hr> -->
+      <p>Wisteria India believes in empowering with the opportunity to lead each one their lives for achieve their own
+        dream. With the motto of making strong base through mission,
+        Wisteria India has continued to enrich the lives of everyone who is a part of the Country; those who believe
+        that growth of nation is depend upon every
+        citizen of India VISION to help people live a life of basic need free for achieve their own dream.
+        MISSION Basic Need Free Nation</p>
+
+    </article>
+  </div>
+</div>
+<!-- End about us -->
+
+<!-- contact us -->
+<app-contact-us></app-contact-us>
+<!-- End contact us -->
+
+<!-- user testimonials -->
+<app-testimonial></app-testimonial>
+<!-- End user testimonials -->
+
+
+
+
+
+
+<!-- <app-product-list></app-product-list> -->

@@ -1,50 +1,62 @@
 <!-- END HEADER -->
-<ngx-ui-loader></ngx-ui-loader>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
-  <div class="container">
-    <a class="navbar-brand" routerLink="/home">
-      <img src="assets/images/LogoSiteBlack.png" alt="Wisteria India" class="img-responsive">
-    </a>
-
-    <!-- Toggle the value of the property when the toggler button is clicked. -->
-    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">
-      &#9776;
-    </button>
-
-    <!-- Add the ngbCollapse directive to the element below. -->
-    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse" style="flex-grow: 0">
-
-      <app-search></app-search>
-
-      <app-product-category-menu></app-product-category-menu>
-
-      <ul class="navbar-nav ml-auto">
-
-        <li class="nav-item active">
-          <!--  Close the menu when a link is clicked. -->
-          <a class="nav-link" routerLink="/home" (click)="isMenuCollapsed = true">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <app-login-status></app-login-status>
-        </li>
-
-      </ul>
-
-      <app-cart-status></app-cart-status>
-
-    </div>
-  </div>
-</nav>
-<!-- END HEADER -->
-
-<!-- MAIN CONTENT-->
 <div class="container-fluid">
+<!-- <ngx-ui-loader></ngx-ui-loader> -->
 
-  <router-outlet></router-outlet>
-  <!-- END MAIN CONTENT-->
+  <mat-toolbar class="navbar navbar-expand-lg navbar-light bg-light my-2 py-2">
+    <mat-toolbar-row class="container" style="flex-wrap: initial">
+
+      <!-- <span>Responsive Navigation</span> -->
+      <span>
+      <a class="navbar-brand" routerLink="/home">
+        <img src="assets/images/LogoSiteBlack.png" alt="Wisteria India" class="img-responsive">
+      </a>
+    </span>
+
+
+      <span class="menu-spacer"></span>
+      <div fxShow="true" fxHide.lt-md >
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+        <a mat-button> <app-search></app-search></a>
+        <a mat-button><app-product-category-menu></app-product-category-menu></a>
+        <a routerLink="/home" (click)="isMenuCollapsed = true" mat-button>Home</a>
+        <a mat-button> <app-login-status></app-login-status></a>
+        <a > <app-cart-status></app-cart-status></a>
+      </div>
+
+      <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
+        <mat-icon>menu</mat-icon>
+      </button>
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill>
+    <mat-sidenav #sidenav>
+      <mat-nav-list>
+        <!-- <a (click)="sidenav.toggle()" mat-list-item>Close</a> -->
+        <a mat-list-item (click)="sidenav.toggle()"> <app-cart-status></app-cart-status></a>
+        <a mat-list-item (click)="sidenav.toggle()"><app-search></app-search></a>
+        <a mat-list-item ><app-product-category-menu></app-product-category-menu></a>
+        <a mat-list-item routerLink="/home" (click)="sidenav.toggle()">Home</a>
+        <a mat-list-item (click)="sidenav.toggle()"> <app-login-status></app-login-status></a>
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content fxFlexFill>
+
+      <!-- END HEADER -->
+
+      <!-- MAIN CONTENT-->
+      <div class="container-fluid">
+
+        <router-outlet></router-outlet>
+        <!-- END MAIN CONTENT-->
+
+      </div>
+
+      <app-footer></app-footer>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
 </div>
 
-<app-footer></app-footer>

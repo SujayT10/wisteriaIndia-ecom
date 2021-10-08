@@ -1,0 +1,45 @@
+<ngb-carousel  class="my-2">
+  <ng-template ngbSlide >
+    <div class="picsum-img-wrapper">
+      <div class="container">
+        <blockquote class="blockquote text-center text-primary py-4 px-3">
+          <p>
+            <span class="quotation-mark">“</span>
+            {{testimonials.quotes[0]}}
+          <footer class="blockquote-footer">{{testimonials.name[0]}},
+            <cite title="The Greek Way">{{testimonials.city[0]}}</cite>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template ngbSlide >
+    <div class="picsum-img-wrapper">
+      <div class="container">
+        <blockquote class="blockquote text-center text-primary text-primary py-4 px-3">
+          <p>
+            <span class="quotation-mark">“</span>
+            {{testimonials.quotes[1]}}
+          <footer class="blockquote-footer">{{testimonials.name[1]}},
+            <cite title="The Greek Way">{{testimonials.city[1]}}</cite>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide >
+    <div class="picsum-img-wrapper">
+      <div class="container">
+        <blockquote class="blockquote text-center text-primary py-4 px-3">
+          <p>
+            <span class="quotation-mark">“</span>
+            {{testimonials.quotes[2]}}
+          <footer class="blockquote-footer">{{testimonials.name[2]}},
+            <cite title="The Greek Way">{{testimonials.city[2]}}</cite>
+          </footer>
+        </blockquote>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>
