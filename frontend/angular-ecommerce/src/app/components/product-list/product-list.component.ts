@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
@@ -30,7 +30,7 @@ export class ProductListComponent implements OnInit {
   boundaryLinks: boolean = true
 
   constructor(private productService: ProductService,
-              private cartService: CartService, private route: ActivatedRoute) {}
+              private cartService: CartService, private route: ActivatedRoute, private router:Router) {}
 
   open(content: any){
     this.cartService.open(content)
@@ -49,6 +49,12 @@ export class ProductListComponent implements OnInit {
         this.productCategory = data;  //  console.log('Product Data= ' + JSON.stringify(data));
       });
    }
+
+   doSearch(value: string){
+    // console.log("Value: "+value);
+    this.router.navigateByUrl(`/search/${value}`);
+
+  }
 
   listProducts() {
     this.searchMode = this.route.snapshot.paramMap.has('keyword');

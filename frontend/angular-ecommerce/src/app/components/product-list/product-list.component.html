@@ -1,39 +1,41 @@
-
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-3 my-2">
 
-        <!-- search -->
-        <div class="panel my-2">
-            <div class="panel-body">
-                <input type="text" placeholder="Keyword Search" class="form-control" />
-            </div>
+      <!-- search -->
+      <div class="panel my-2">
+        <div class="panel-body">
+          <input #myInput type="text"
+          placeholder="Search for Products ..." class="form-control"
+          (keyUp.enter)="doSearch(myInput.value)"  />
+          
         </div>
-        <!-- End search -->
+      </div>
+      <!-- End search -->
 
-        <!-- category -->
-        <div class="panel my-2">
-            <header class="panel-heading">
-                Category
-            </header>
-            <div class="panel-body">
-                <ul class="prod-cat list-unstyled">
-                    <li *ngFor="let tempProductCategory of productCategory">
-                        <a routerLink="/category/{{tempProductCategory.id}}" class="nav-link text-muted">
-                          <i class="fas fa-angle-right"></i> {{tempProductCategory.categoryName}}</a>
-                        <!-- <ul class="prod-cat list-unstyled">
+      <!-- category -->
+      <div class="panel my-2">
+        <header class="panel-heading">
+          Category
+        </header>
+        <div class="panel-body">
+          <ul class="prod-cat list-unstyled">
+            <li *ngFor="let tempProductCategory of productCategory">
+              <a routerLink="/category/{{tempProductCategory.id}}" class="nav-link text-muted">
+                <i class="fas fa-angle-right"></i> {{tempProductCategory.categoryName}}</a>
+              <!-- <ul class="prod-cat list-unstyled">
                             <li class="active"><a href="#">- Shirt</a></li>
                             <li><a href="#">- Pant</a></li>
                             <li><a href="#">- Shoes</a></li>
                         </ul> -->
-                    </li>
-                </ul>
-            </div>
+            </li>
+          </ul>
         </div>
-        <!-- End category -->
+      </div>
+      <!-- End category -->
 
-        <!-- <div class="panel">
+      <!-- <div class="panel">
             <header class="panel-heading">
                 Price Range
             </header>
@@ -44,7 +46,7 @@
                 </div>
             </div>
         </div> -->
-        <!-- <div class="panel">
+      <!-- <div class="panel">
             <header class="panel-heading">
                 Filter
             </header>
@@ -85,8 +87,8 @@
             </div>
         </div> -->
 
-        <!-- best seller -->
-        <!-- <div class="panel my-2">
+      <!-- best seller -->
+      <!-- <div class="panel my-2">
             <header class="panel-heading">
                 Best Seller
             </header>
@@ -122,36 +124,23 @@
                 </div>
             </div>
         </div> -->
-        <!-- End best seller -->
+      <!-- End best seller -->
     </div>
 
     <div class="col-md-9 my-2">
-        <!-- <div class="panel my-2">
 
-                <div class="pull-right">
-                    <ul class="pagination ">
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
-                </div>
+      <div class="container" style="margin-top:50px;">
+        <div class="row">
+          <div class="col-md-3 mt-2" *ngFor="let tempProducts of products">
+            <div class="card-sl">
 
-        </div> -->
-
-
-
-<div class="container" style="margin-top:50px;">
-  <div class="row">
-      <div class="col-md-3 mt-2" *ngFor="let tempProducts of products" >
-          <div class="card-sl">
               <div class="card-image">
+                <a class="card-action"><i class="fa fa-heart"></i></a>
                 <a routerLink="/products/{{tempProducts.id}}">
                   <img src="{{tempProducts.imageUrl}}" alt="{{tempProducts.name}}" />
                 </a>
               </div>
 
-              <a class="card-action"><i class="fa fa-heart"></i></a>
               <div class="card-heading">
                 {{tempProducts.name}}
               </div>
@@ -159,42 +148,38 @@
 
               </div>
               <div class="card-text">
-                 {{tempProducts.unitPrice | currency:'INR'}}
+                {{tempProducts.unitPrice | currency:'INR'}}
               </div>
 
               <ng-template #content>
-
                 <ngb-alert type="success" [dismissible]="false">
                   <strong>Successfully</strong> added to cart..!!
                 </ngb-alert>
-
               </ng-template>
 
-              <a class="card-button"  (click)="addToCart(tempProducts)"
-              (click)="open(content)">Add to Cart</a>
+              <a class="card-button" (click)="addToCart(tempProducts)" (click)="open(content)">Add to Cart</a>
+            </div>
           </div>
+
+          <!-- If product not found -->
+          <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+            No Product Found.
+          </div>
+
+        </div>
       </div>
 
-      <!-- If product not found -->
-      <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
-        No Product Found.
-      </div>
-      
-  </div>
-</div>
+      <!-- start Pagination part -->
+      <div class="footer-pagination mt-4">
+        <div class="row">
+          <div class="col-md-6"></div>
+          <div class="col-md-6 text-center">
 
+            <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [collectionSize]="theTotalElement"
+              (pageChange)="listProducts()" [maxSize]=maxSize [boundaryLinks]=boundaryLinks>
+            </ngb-pagination>
 
-        <!-- start Pagination part -->
-        <div class="footer-pagination mt-4">
-          <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6 text-center">
-
-              <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [collectionSize]="theTotalElement"
-                (pageChange)="listProducts()" [maxSize]=maxSize [boundaryLinks]=boundaryLinks>
-              </ngb-pagination>
-
-              <!--
+            <!--
                     <div  class="col-md-4 mt-2" style="text-align: right">
                       <span class="mr-2" >Page Size</span>
                       <select (change)="updatePageSize($event.target.value)" >
@@ -205,20 +190,11 @@
                       </select>
                     </div> -->
 
-            </div>
           </div>
         </div>
-        <!-- start Pagination part -->
-
-
       </div>
+      <!-- start Pagination part -->
+
+    </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
