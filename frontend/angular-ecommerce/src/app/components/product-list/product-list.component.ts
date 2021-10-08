@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
+import { ProductCategory } from 'src/app/common/product-category';
 import { ProductService } from 'src/app/service/product.service';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -19,6 +20,7 @@ export class ProductListComponent implements OnInit {
   previousCategoryId: number = 1;
   currentCategoryName: any;
   searchMode: boolean = false;
+  productCategory: ProductCategory[] = [];
 
   // for paginations
   thePageNumber: number = 1;
@@ -38,7 +40,15 @@ export class ProductListComponent implements OnInit {
     this.route.paramMap.subscribe(() => {
       this.listProducts();
     });
+    this.listProductCategories();
   }
+
+  listProductCategories() {
+    this.productService.getProductCategories().subscribe(
+      data => {
+        this.productCategory = data;  //  console.log('Product Data= ' + JSON.stringify(data));
+      });
+   }
 
   listProducts() {
     this.searchMode = this.route.snapshot.paramMap.has('keyword');

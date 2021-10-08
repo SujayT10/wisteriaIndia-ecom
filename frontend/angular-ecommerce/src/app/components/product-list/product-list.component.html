@@ -1,102 +1,226 @@
-<div class="container">
 
-      <div class="section-content section-content-p30 mt-3">
-        <h4>Category: {{ currentCategoryName }}</h4>
-        <!-- <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
-          <ngb-panel title="Category: {{ currentCategoryName }}">
-            <ng-template ngbPanelContent>
-              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia
-              aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-              sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica,
-              craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
-              occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-              labore sustainable VHS.
-            </ng-template>
-          </ngb-panel>
-        </ngb-accordion> -->
-        <hr>
-        <div class="container-fluid">
-          <div class="row">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 my-2">
 
-            <div *ngFor="let tempProducts of products" class="col-md-3">
-              <!-- bbb_deals -->
-              <div class="bbb_deals">
-                <div class="bbb_deals_slider_container">
-                  <div class=" bbb_deals_item">
-                    <div class="bbb_deals_image">
-                      <a routerLink="/products/{{tempProducts.id}}">
-                        <img src="{{tempProducts.imageUrl}}" alt="{{tempProducts.name}}" class="img-responsive" />
-                      </a>
+        <!-- search -->
+        <div class="panel my-2">
+            <div class="panel-body">
+                <input type="text" placeholder="Keyword Search" class="form-control" />
+            </div>
+        </div>
+        <!-- End search -->
+
+        <!-- category -->
+        <div class="panel my-2">
+            <header class="panel-heading">
+                Category
+            </header>
+            <div class="panel-body">
+                <ul class="prod-cat list-unstyled">
+                    <li *ngFor="let tempProductCategory of productCategory">
+                        <a routerLink="/category/{{tempProductCategory.id}}" class="nav-link text-muted">
+                          <i class="fas fa-angle-right"></i> {{tempProductCategory.categoryName}}</a>
+                        <!-- <ul class="prod-cat list-unstyled">
+                            <li class="active"><a href="#">- Shirt</a></li>
+                            <li><a href="#">- Pant</a></li>
+                            <li><a href="#">- Shoes</a></li>
+                        </ul> -->
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- End category -->
+
+        <!-- <div class="panel">
+            <header class="panel-heading">
+                Price Range
+            </header>
+            <div class="panel-body sliders">
+                <div id="slider-range" class="slider"></div>
+                <div class="slider-info">
+                    <span id="slider-range-amount"></span>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="panel">
+            <header class="panel-heading">
+                Filter
+            </header>
+            <div class="panel-body">
+                <form role="form product-form">
+                    <div class="form-group">
+                        <label>Brand</label>
+                        <select class="form-control hasCustomSelect" style="-webkit-appearance: menulist-button; width: 231px; position: absolute; opacity: 0; height: 34px; font-size: 12px;">
+                            <option>Wallmart</option>
+                            <option>Catseye</option>
+                            <option>Moonsoon</option>
+                            <option>Textmart</option>
+                        </select>
+                        <span class="customSelect form-control" style="display: inline-block;"><span class="customSelectInner" style="width: 209px; display: inline-block;">Wallmart</span></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Color</label>
+                        <select class="form-control hasCustomSelect" style="-webkit-appearance: menulist-button; width: 231px; position: absolute; opacity: 0; height: 34px; font-size: 12px;">
+                            <option>White</option>
+                            <option>Black</option>
+                            <option>Red</option>
+                            <option>Green</option>
+                        </select>
+                        <span class="customSelect form-control" style="display: inline-block;"><span class="customSelectInner" style="width: 209px; display: inline-block;">White</span></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Type</label>
+                        <select class="form-control hasCustomSelect" style="-webkit-appearance: menulist-button; width: 231px; position: absolute; opacity: 0; height: 34px; font-size: 12px;">
+                            <option>Small</option>
+                            <option>Medium</option>
+                            <option>Large</option>
+                            <option>Extra Large</option>
+                        </select>
+                        <span class="customSelect form-control" style="display: inline-block;"><span class="customSelectInner" style="width: 209px; display: inline-block;">Small</span></span>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Filter</button>
+                </form>
+            </div>
+        </div> -->
+
+        <!-- best seller -->
+        <!-- <div class="panel my-2">
+            <header class="panel-heading">
+                Best Seller
+            </header>
+            <div class="panel-body">
+                <div class="best-seller">
+                    <article class="media">
+                        <a class="pull-left thumb p-thumb">
+                            <img src="https://via.placeholder.com/250x220/FFB6C1/000000" />
+                        </a>
+                        <div class="media-body">
+                            <a href="#" class="p-head">Item One Tittle</a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </article>
+                    <article class="media">
+                        <a class="pull-left thumb p-thumb">
+                            <img src="https://via.placeholder.com/250x220/A2BE2/000000" />
+                        </a>
+                        <div class="media-body">
+                            <a href="#" class="p-head">Item Two Tittle</a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </article>
+                    <article class="media">
+                        <a class="pull-left thumb p-thumb">
+                            <img src="https://via.placeholder.com/250x220/6495ED/000000" />
+                        </a>
+                        <div class="media-body">
+                            <a href="#" class="p-head">Item Three Tittle</a>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div> -->
+        <!-- End best seller -->
+    </div>
+
+    <div class="col-md-9 my-2">
+        <!-- <div class="panel my-2">
+
+                <div class="pull-right">
+                    <ul class="pagination ">
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">»</a></li>
+                    </ul>
+                </div>
+
+        </div> -->
+
+
+        <div class="row">
+
+          <div *ngFor="let tempProducts of products" class="col-md-3">
+            <div class="bbb_deals">
+              <div class="bbb_deals_slider_container">
+                <div class=" bbb_deals_item">
+                  <div class="bbb_deals_image">
+                    <a routerLink="/products/{{tempProducts.id}}">
+                      <img src="{{tempProducts.imageUrl}}" alt="{{tempProducts.name}}" class="img-responsive" />
+                    </a>
+                  </div>
+
+                  <div class="bbb_deals_content">
+
+                    <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
+                      <div class="bbb_deals_item_name">
+                        <a class="btn" routerLink="/products/{{tempProducts.id}}">{{tempProducts.name}}</a>
+                      </div>
                     </div>
 
-                    <div class="bbb_deals_content">
+                    <div class="bbb_deals_item_price ml-auto">
+                      {{tempProducts.unitPrice | currency:'INR'}}
+                    </div>
 
-                      <div class="bbb_deals_info_line d-flex flex-row justify-content-start">
-                        <div class="bbb_deals_item_name">
-                          <a class="btn" routerLink="/products/{{tempProducts.id}}">{{tempProducts.name}}</a>
-                        </div>
-                      </div>
+                    <ng-template #content>
 
-                      <div class="bbb_deals_item_price ml-auto">
-                        {{tempProducts.unitPrice | currency:'INR'}}
-                      </div>
-
-                      <ng-template #content>
-
-                        <ngb-alert type="success" [dismissible]="false">
-                          <strong>Successfully</strong> added to cart..!!
-                        </ngb-alert>
+                      <ngb-alert type="success" [dismissible]="false">
+                        <strong>Successfully</strong> added to cart..!!
+                      </ngb-alert>
 
                     </ng-template>
 
-                    <button class="btn btn-primary btn-sm  mr-2 mt-2" (click)="addToCart(tempProducts)" (click)="open(content)">Add to Cart</button>
+                    <button class="btn btn-primary btn-sm  mr-2 mt-2" (click)="addToCart(tempProducts)"
+                      (click)="open(content)">Add to Cart</button>
 
 
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            <!-- If product not found -->
-            <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
-              No Product Found.
-            </div>
-
           </div>
 
-          <!-- start Pagination part -->
-          <div class="footer-pagination mt-4">
-            <div class="row">
-              <div class="col-md-6"></div>
-              <div class="col-md-6 text-center">
-
-                <ngb-pagination [(page)]="thePageNumber"
-                                [pageSize]="thePageSize"
-                                [collectionSize]="theTotalElement"
-                                (pageChange)="listProducts()"
-                                [maxSize]=maxSize
-                                [boundaryLinks]=boundaryLinks>
-                </ngb-pagination>
-
-                <!--
-                  <div  class="col-md-4 mt-2" style="text-align: right">
-                    <span class="mr-2" >Page Size</span>
-                    <select (change)="updatePageSize($event.target.value)" >
-                      <option selected="true">5</option>
-                      <option>10</option>
-                      <option>20</option>
-                      <option>50</option>
-                    </select>
-                  </div> -->
-
-              </div>
-            </div>
+          <!-- If product not found -->
+          <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+            No Product Found.
           </div>
-          <!-- start Pagination part -->
 
         </div>
-      </div>
 
-    </div>
+        <!-- start Pagination part -->
+        <div class="footer-pagination mt-4">
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 text-center">
+
+              <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [collectionSize]="theTotalElement"
+                (pageChange)="listProducts()" [maxSize]=maxSize [boundaryLinks]=boundaryLinks>
+              </ngb-pagination>
+
+              <!--
+                    <div  class="col-md-4 mt-2" style="text-align: right">
+                      <span class="mr-2" >Page Size</span>
+                      <select (change)="updatePageSize($event.target.value)" >
+                        <option selected="true">5</option>
+                        <option>10</option>
+                        <option>20</option>
+                        <option>50</option>
+                      </select>
+                    </div> -->
+
+            </div>
+          </div>
+        </div>
+        <!-- start Pagination part -->
+
+
+      </div>
+  </div>
+</div>
+
+
+
+
 
