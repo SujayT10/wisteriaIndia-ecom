@@ -45,6 +45,7 @@ import { ProductListHomeComponent } from './components/product-list-home/product
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { TestimonialComponent } from './components/testimonial/testimonial.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 const oktaConfig = Object.assign({
   onAuthRequired: (oktaAuth: any, injector: any) => {
@@ -104,7 +105,9 @@ const oktaConfig = Object.assign({
     MatIconModule,
     MatButtonModule,
     MatBadgeModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    CarouselModule
+
   ],
   providers: [ProductService, { provide: OKTA_CONFIG, useValue: oktaConfig },
               { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }],

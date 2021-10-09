@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-product-list-home',
@@ -7,12 +8,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductListHomeComponent implements OnInit {
 
-  images = [1, 2, 3].map((n) => `assets/images/banner/${n}.jpg`);
-  images2 = [4, 5, 1].map((n) => `assets/images/banner/${n}.jpg`);
+  images = [1, 2, 3, 4, 5].map((n) => `assets/images/banner/${n}.jpg`);
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: true,
+    navSpeed: 500,
+    navText: [ '<i class="fas fa-angle-left"></i>', '<i class="fas fa-angle-right"></i>' ],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: false
+  }
+
+
 
 }

@@ -75,7 +75,7 @@ export class ProductListComponent implements OnInit {
       this.currentCategoryName = this.route.snapshot.paramMap.get('name');  // console.log("inside if: " + this.currentCategoryId)
     }
     else {
-      this.currentCategoryId = 5;  console.log("inside else: " + this.currentCategoryId);
+      this.currentCategoryId = 1;  console.log("inside else: " + this.currentCategoryId);
       this.currentCategoryName = 'Electronics';  console.log("inside else: " + this.currentCategoryName)
     }
 
