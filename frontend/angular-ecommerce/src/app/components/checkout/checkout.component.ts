@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/appService/cart.service';
+import { CheckoutService } from 'src/app/appService/checkout.service';
+import { FormService } from 'src/app/appService/form.service';
 import { Country } from 'src/app/common/country';
 import { Order } from 'src/app/common/order';
 import { OrderItem } from 'src/app/common/order-item';
 import { Purchase } from 'src/app/common/purchase';
 import { State } from 'src/app/common/state';
-import { CartService } from 'src/app/services/cart.service';
-import { CheckoutService } from 'src/app/services/checkout.service';
-import { FormService } from 'src/app/services/form.service';
 import { FormValidator } from 'src/app/validators/form-validator';
 
 @Component({

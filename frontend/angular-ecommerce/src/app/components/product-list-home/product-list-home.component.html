@@ -1,29 +1,26 @@
-<div class="container-fluid my-4">
-  <div class="shop-default shop-cards shop-tech">
+<div class="shop-default shop-cards shop-tech my-4">
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let image of images">
 
-    <owl-carousel-o [options]="customOptions">
-      <ng-template carouselSlide *ngFor="let image of images">
-
-            <div class="block product no-border z-depth-2-top z-depth-2--hover px-1">
-              <div class="block-image">
-                  <img [src]="image" alt="Random slide" class="img-center">
-                <span class="product-ribbon product-ribbon-right product-ribbon--style-1 bg-blue text-uppercase">
-                  New
-                </span>
-              </div>
-              <div class="block-body text-center">
-                <div class="product-buttons mt-4">
-                  <div class="row align-items-center">
-                    <div class="d-grid gap-2 col-10 mx-auto">
-                      <button routerLink="/products" type="button" class="fill">For More</button>
-                    </div>
-                  </div>
-                </div>
+      <div class="block product no-border z-depth-2-top z-depth-2--hover px-1">
+        <div class="block-image">
+          <img [src]="image" alt="Random slide" class="img-center">
+          <span class="product-ribbon product-ribbon-right product-ribbon--style-1 bg-blue text-uppercase">
+            New
+          </span>
+        </div>
+        <div class="block-body text-center">
+          <div class="product-buttons mt-4">
+            <div class="row align-items-center">
+              <div class="d-grid gap-2 col-10 mx-auto">
+                <button routerLink="/products" type="button" class="fill">For More</button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-      </ng-template>
-    </owl-carousel-o>
+    </ng-template>
+  </owl-carousel-o>
 
-  </div>
 </div>

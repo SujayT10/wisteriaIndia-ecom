@@ -4,8 +4,8 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CartItem } from 'src/app/common/cart-item';
 import { Product } from 'src/app/common/product';
 import { ProductCategory } from 'src/app/common/product-category';
-import { ProductService } from 'src/app/service/product.service';
-import { CartService } from 'src/app/services/cart.service';
+import { CartService } from 'src/app/appService/cart.service';
+import { ProductService } from 'src/app/appService/product.service';
 
 
 @Component({
@@ -75,7 +75,7 @@ export class ProductListComponent implements OnInit {
       this.currentCategoryName = this.route.snapshot.paramMap.get('name');  // console.log("inside if: " + this.currentCategoryId)
     }
     else {
-      this.currentCategoryId = 1;  console.log("inside else: " + this.currentCategoryId);
+      this.currentCategoryId = 5;  console.log("inside else: " + this.currentCategoryId);
       this.currentCategoryName = 'Electronics';  console.log("inside else: " + this.currentCategoryName)
     }
 
