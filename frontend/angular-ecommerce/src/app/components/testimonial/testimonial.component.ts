@@ -14,7 +14,7 @@ interface Testimonials{
 })
 export class TestimonialComponent implements OnInit {
 
-  testimonials: Testimonials = {
+  testimonials = {
     quotes: ['Your most unhappy customers are your most important source of learning',
              'You should learn from your competitor, but never copy. Copy and you die',
              'If you’re competitor-focused, you have to wait until there is a competitor doing something. Being customer-focused allows you to be more pioneering.',],
