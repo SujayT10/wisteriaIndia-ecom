@@ -35,6 +35,7 @@ import { TestimonialComponent } from './components/testimonial/testimonial.compo
 import { MaterialModule } from './material/material.module';
 import { AuthInterceptorService } from './appService/auth-interceptor.service';
 import { ProductService } from './appService/product.service';
+import { ProductCategorySidebarComponent } from './components/product-category-sidebar/product-category-sidebar.component';
 
 
 const oktaConfig = Object.assign({
@@ -69,7 +70,8 @@ const oktaConfig = Object.assign({
     ProductListHomeComponent,
     ContactUsComponent,
     AboutUsComponent,
-    TestimonialComponent
+    TestimonialComponent,
+    ProductCategorySidebarComponent
   ],
   imports: [
     BrowserModule,

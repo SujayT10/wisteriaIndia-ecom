@@ -11,6 +11,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 const material = [
@@ -31,7 +32,8 @@ const material = [
   MatButtonModule,
   MatBadgeModule,
   FlexLayoutModule,
-  CarouselModule
+  CarouselModule,
+  MatExpansionModule
 
 ]
 @NgModule({

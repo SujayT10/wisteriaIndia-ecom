@@ -1,0 +1,23 @@
+<div>
+  <button mat-button type="button" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
+    aria-controls="collapseExample">Category
+  </button>
+
+  <div #collapse="ngbCollapse" [(ngbCollapse)]="!isCollapsed">
+
+    <div class="card-body">
+      <ul class="prod-cat list-unstyled">
+        <li *ngFor="let tempProductCategory of productCategory">
+          <a routerLink="/category/{{tempProductCategory.id}}" class="nav-link text-muted">
+            <i class="fas fa-angle-right"></i> {{tempProductCategory.categoryName}}</a>
+          <!-- <ul class="prod-cat list-unstyled">
+                        <li class="active"><a href="#">- Shirt</a></li>
+                        <li><a href="#">- Pant</a></li>
+                        <li><a href="#">- Shoes</a></li>
+                    </ul> -->
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>
