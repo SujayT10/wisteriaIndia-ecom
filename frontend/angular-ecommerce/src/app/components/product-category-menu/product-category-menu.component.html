@@ -1,6 +1,16 @@
-<div class="login-status-header">
 
-  <div class="navbar-collapse" #navbarContent>
+  <div ngbDropdown class="d-inline-block">
+    <button mat-button  id="dropdownBasic1" ngbDropdownToggle>Category</button>
+    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+
+      <button ngbDropdownItem *ngFor="let tempProductCategory of productCategory">
+        <a ngbDropdownItem routerLink="/category/{{tempProductCategory.id}}">{{tempProductCategory.categoryName}}</a>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- <div class="navbar-collapse" #navbarContent>
     <ul class="navbar-nav ml-auto">
 
       <li class="nav-item" ngbDropdown >
@@ -15,23 +25,9 @@
       </li>
 
     </ul>
-  </div>
+  </div> -->
 
 
-</div>
 
-<!-- <mat-sidenav-container fxFlexFill>
-  <mat-sidenav #sidenav>
-    <mat-nav-list>
-
-
-      <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-        <li *ngFor="let tempProductCategory of productCategory">
-          <a mat-list-item (click)="sidenav.toggle()" ngbDropdownItem routerLink="/category/{{tempProductCategory.id}}">{{tempProductCategory.categoryName}}</a>
-        </li>
-      </div>
-    </mat-nav-list>
-  </mat-sidenav>
-</mat-sidenav-container> -->
 
 

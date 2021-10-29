@@ -17,7 +17,7 @@ export class AppComponent {
 
   closeResult: string;
 
-  blur: any = 5;
+  blur: number = 5;
 
   constructor() {
 

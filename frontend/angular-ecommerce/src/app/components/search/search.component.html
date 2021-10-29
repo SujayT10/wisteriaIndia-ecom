@@ -1,4 +1,4 @@
-<div class="form-header">
+<!-- <div class="form-header">
 
   <input  #myInput type="text"
          placeholder="Search for Products ..."
@@ -9,4 +9,13 @@
     Search
   </button>
 
+</div> -->
+
+
+
+
+<div class="form">
+  <input #myInput type="text" class="form-control form-input au-input-xl" placeholder="Search for products..."
+    (keyUp.enter)="doSearch(myInput.value)">
+  <i class="fa fa-search" (click)="doSearch(myInput.value)"></i>
 </div>

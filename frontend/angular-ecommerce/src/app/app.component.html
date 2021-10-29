@@ -1,25 +1,35 @@
 <!-- END HEADER -->
 <div class="container-fluid">
-<ngx-ui-loader></ngx-ui-loader>
+  <!-- <ngx-ui-loader></ngx-ui-loader> -->
 
   <mat-toolbar class="navbar navbar-expand-lg navbar-light bg-light my-2 py-2">
-    <mat-toolbar-row class="container" style="flex-wrap: initial">
+    <mat-toolbar-row class="container-fluid" style="flex-wrap: initial">
 
       <!-- <span>Responsive Navigation</span> -->
       <span>
-      <a class="navbar-brand" routerLink="/home">
-        <img src="assets/images/LogoSiteBlack.png" alt="Wisteria India" class="img-responsive">
-      </a>
-    </span>
+        <a class="navbar-brand" routerLink="/home">
+          <img src="assets/images/LogoSiteBlack.png" alt="Wisteria India" class="img-responsive">
+        </a>
+      </span>
 
-      <span class="menu-spacer"></span>
-      <div fxShow="true" fxHide.lt-md >
+      <!-- <span class="menu-spacer"></span> -->
+      <div fxShow="true" fxHide.lt-md>
         <!-- The following menu items will be hidden on both SM and XS screen sizes -->
-        <a mat-button> <app-search></app-search></a>
-        <a mat-button><app-product-category-menu></app-product-category-menu></a>
-        <a routerLink="/home" (click)="isMenuCollapsed = true" mat-button>Home</a>
-        <a mat-button> <app-login-status></app-login-status></a>
-        <a > <app-cart-status></app-cart-status></a>
+        <a class="mx-2">
+          <app-search></app-search>
+        </a>
+        <a>
+          <app-product-category-menu></app-product-category-menu>
+        </a>
+        <a>
+          <button mat-button routerLink="/home">Home</button>
+        </a>
+        <a mat-button>
+          <app-login-status></app-login-status>
+        </a>
+        <a>
+          <app-cart-status></app-cart-status>
+        </a>
       </div>
 
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -32,11 +42,20 @@
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <!-- <a (click)="sidenav.toggle()" mat-list-item>Close</a> -->
-        <a mat-list-item (click)="sidenav.toggle()"> Cart <app-cart-status></app-cart-status></a>
-        <a mat-list-item (click)="sidenav.toggle()"><app-search></app-search></a>
-        <a mat-list-item ><app-product-category-menu></app-product-category-menu></a>
-        <a mat-list-item routerLink="/home" (click)="sidenav.toggle()">Home</a>
-        <a mat-list-item (click)="sidenav.toggle()"> <app-login-status></app-login-status></a>
+
+        <a mat-list-item (click)="sidenav.toggle()">
+          <app-search></app-search>
+        </a>
+        <a mat-list-item (click)="sidenav.toggle()"> <app-cart-status></app-cart-status></a>
+        <a mat-list-item>
+          <app-product-category-menu></app-product-category-menu>
+        </a>
+        <!-- <a mat-list-item routerLink="/home" (click)="sidenav.toggle()">
+          <button mat-button routerLink="/home">Home</button>
+        </a> -->
+        <a mat-list-item (click)="sidenav.toggle()">
+          <app-login-status></app-login-status>
+        </a>
 
       </mat-nav-list>
     </mat-sidenav>
@@ -58,4 +77,3 @@
   </mat-sidenav-container>
 
 </div>
-
